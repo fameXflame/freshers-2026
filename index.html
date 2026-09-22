@@ -3,66 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#07090e">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>Freshers Gala 2026 • IIIT Bhopal | 2nd Year Contribution</title>
-  <meta name="description" content="Official fund collection portal for IIIT Bhopal Freshers Gala 2026. Welcoming the freshers batch with grand celebrations.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%236366f1'/><path d='M30 70 L50 30 L70 70 Z' fill='none' stroke='white' stroke-width='8' stroke-linejoin='round'/></svg>">
+  <meta name="theme-color" content="#F4ECE1">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>Freshers '26 • IIIT Bhopal | 2nd Year Fund Drive</title>
+  <meta name="description" content="Official fund collection portal for IIIT Bhopal Freshers 2026. Welcoming incoming freshers with grand celebrations.">
 
-  <!-- Google Fonts: Syne (Headings), Plus Jakarta Sans (Body), Space Grotesk (Tech / Numbers) -->
+  <!-- Google Fonts: Playfair Display (Prestigious Serif) + Outfit (Modern Luxury Sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            display: ['Syne', 'sans-serif'],
-            mono: ['"Space Grotesk"', 'monospace'],
+            sans: ['Outfit', 'system-ui', 'sans-serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
           },
           colors: {
-            dark: {
-              950: '#07090e',
-              900: '#0b0f19',
-              850: '#111726',
-              800: '#171f32',
-              700: '#1e293b',
+            parchment: {
+              50: '#FCFBF8',
+              100: '#F7F2EB',
+              200: '#EFE7DC',
+              300: '#E2D5C4',
+              400: '#CFC0AB',
+              500: '#B8A38B',
             },
-            vivid: {
-              indigo: '#6366f1',
-              violet: '#8b5cf6',
-              purple: '#a855f7',
-              pink: '#ec4899',
-              cyan: '#06b6d4',
-              amber: '#f59e0b',
-              emerald: '#10b981',
-            }
-          },
-          animation: {
-            'aurora': 'aurora 14s ease-in-out infinite alternate',
-            'spin-slow': 'spin 20s linear infinite',
-            'float-slow': 'float 5s ease-in-out infinite',
-            'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
-          },
-          keyframes: {
-            aurora: {
-              '0%': { transform: 'translate(0, 0) scale(1)' },
-              '50%': { transform: 'translate(-4%, 6%) scale(1.12)' },
-              '100%': { transform: 'translate(4%, -3%) scale(0.96)' },
+            crimson: {
+              50: '#FFF1F2',
+              100: '#FFE4E6',
+              200: '#FECDD3',
+              500: '#F43F5E',
+              600: '#E11D48',
+              700: '#BE123C',
+              800: '#9F1239',
+              900: '#881337',
+              950: '#4C0519',
             },
-            float: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-6px)' },
+            gold: {
+              50: '#FFFBEB',
+              100: '#FEF3C7',
+              200: '#FDE68A',
+              300: '#FCD34D',
+              400: '#FBBF24',
+              500: '#F59E0B',
+              600: '#D97706',
+              700: '#B45309',
+              800: '#92400E',
             },
-            pulseGlow: {
-              '0%, 100%': { opacity: '0.4' },
-              '50%': { opacity: '0.75' },
+            forest: {
+              50: '#ECFDF5',
+              100: '#D1FAE5',
+              600: '#059669',
+              700: '#047857',
+              800: '#065F46',
             }
           }
         }
@@ -70,245 +67,217 @@
     }
   </script>
 
-  <!-- Lucide Icons -->
+  <!-- Lucide Icons & QRCode -->
   <script src="https://unpkg.com/lucide@latest"></script>
-
-  <!-- Canvas Confetti -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-
-  <!-- QRCode.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="bg-dark-950 text-slate-100 font-sans min-h-screen selection:bg-vivid-indigo selection:text-white relative overflow-x-hidden antialiased pb-28 sm:pb-12">
+<body class="bg-parchment-100 text-stone-800 font-sans antialiased selection:bg-crimson-800 selection:text-white pb-24 sm:pb-12">
 
-  <!-- DYNAMIC AURORA & AMBIENT GLOW BACKDROP -->
+  <!-- Ambient Luxury Depth (Warm gold + subtle crimson radiance, warm textured feel) -->
   <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-    <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] sm:w-[900px] h-[400px] sm:h-[520px] bg-gradient-to-r from-vivid-indigo/35 via-vivid-violet/30 to-vivid-pink/25 rounded-full blur-[100px] sm:blur-[140px] animate-aurora"></div>
-    <div class="absolute top-[35%] -left-28 w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] bg-vivid-cyan/15 rounded-full blur-[90px] sm:blur-[130px]"></div>
-    <div class="absolute top-[65%] -right-28 w-[320px] sm:w-[500px] h-[320px] sm:h-[500px] bg-vivid-amber/12 rounded-full blur-[90px] sm:blur-[140px]"></div>
-    <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:3rem_3rem] sm:bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] sm:w-[1000px] h-[480px] bg-gradient-to-b from-amber-200/35 via-rose-200/25 to-transparent rounded-full blur-3xl"></div>
+    <div class="absolute top-[40%] -left-32 w-[420px] h-[420px] bg-rose-200/20 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-10 -right-24 w-[480px] h-[480px] bg-amber-100/40 rounded-full blur-3xl"></div>
   </div>
 
-  <!-- TOAST NOTIFICATION -->
-  <div id="toast" class="fixed top-4 sm:top-6 right-4 sm:right-6 left-4 sm:left-auto z-50 transform translate-y-[-140%] opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 px-4 sm:px-5 py-3 sm:py-3.5 rounded-2xl bg-dark-850/95 border border-vivid-indigo/40 text-white shadow-2xl backdrop-blur-xl">
-    <div class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
-      <i data-lucide="check" class="w-4 h-4 stroke-[2.5]"></i>
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
+    <div class="toast-icon">
+      <i data-lucide="check" class="w-4 h-4 text-emerald-700 stroke-[2.5]"></i>
     </div>
     <div>
-      <p id="toast-message" class="text-xs sm:text-sm font-semibold text-white">Payment link copied to clipboard!</p>
-      <p class="text-[10px] sm:text-[11px] text-slate-400">Share with batchmates on WhatsApp</p>
+      <p id="toast-message" class="text-xs sm:text-sm font-semibold text-stone-900">Payment link copied!</p>
+      <p class="text-[11px] text-stone-500">Share with batchmates on WhatsApp</p>
     </div>
   </div>
 
-  <!-- MAIN WRAPPER -->
-  <div class="relative z-10 max-w-5xl mx-auto px-3.5 sm:px-6 lg:px-8 py-4 sm:py-8 flex flex-col min-h-screen">
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-7 flex flex-col min-h-screen">
 
-    <!-- FLOATING TOP NAVIGATION (MOBILE-OPTIMIZED) -->
-    <header class="flex items-center justify-between py-2.5 sm:py-3.5 px-3.5 sm:px-7 rounded-2xl bg-dark-900/85 border border-white/[0.09] backdrop-blur-2xl shadow-xl mb-6 sm:mb-10">
-      <div class="flex items-center gap-2.5 sm:gap-3.5">
-        <div class="relative group">
-          <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-vivid-indigo via-vivid-violet to-vivid-pink flex items-center justify-center font-display font-extrabold text-white text-xs sm:text-base tracking-wider shadow-lg shadow-vivid-indigo/30">
-            IIIT
-          </div>
-          <span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 sm:w-3 sm:h-3 bg-emerald-500 border-2 border-dark-900 rounded-full"></span>
+    <!-- Premium Header / Navbar -->
+    <header class="flex items-center justify-between py-3 px-4 sm:px-6 rounded-2xl bg-white/80 border border-stone-200/80 shadow-[0_4px_20px_-4px_rgba(180,83,9,0.06)] backdrop-blur-md mb-8 sm:mb-12">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-crimson-900 to-crimson-950 flex items-center justify-center text-amber-200 font-serif font-bold text-sm tracking-wider shadow-md shadow-crimson-950/20 border border-amber-400/30">
+          IIIT
         </div>
         <div>
-          <div class="flex items-center gap-1.5 sm:gap-2">
-            <h1 class="font-display font-bold text-white text-xs sm:text-base tracking-wide">IIIT BHOPAL</h1>
-            <span class="text-[9px] sm:text-[10px] font-mono uppercase font-semibold px-1.5 sm:px-2 py-0.5 rounded bg-vivid-indigo/15 text-indigo-300 border border-vivid-indigo/30">
+          <div class="flex items-center gap-2">
+            <h1 class="font-serif font-bold text-stone-900 text-sm sm:text-base tracking-wide">IIIT BHOPAL</h1>
+            <span class="text-[10px] font-semibold tracking-wider uppercase px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300/60">
               GALA '26
             </span>
           </div>
-          <p class="text-[10px] sm:text-xs text-slate-400 font-medium">B.Tech 2nd Year Drive</p>
+          <p class="text-[11px] sm:text-xs text-stone-500 font-medium">B.Tech 2nd Year Batch Contribution</p>
         </div>
       </div>
 
-      <div class="flex items-center gap-2 sm:gap-3">
-        <div class="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-300 text-[10px] sm:text-xs font-semibold">
-          <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-400 animate-ping"></span>
-          <span>Live</span>
+      <div class="flex items-center gap-2.5">
+        <div class="hidden xs:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          <span>Drive Live</span>
         </div>
-        <button onclick="shareOrCopy()" class="flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 text-slate-200 hover:text-white text-[11px] sm:text-xs font-semibold transition active:scale-95">
-          <i data-lucide="share-2" class="w-3.5 h-3.5 text-indigo-400"></i>
-          <span class="hidden xs:inline">Share</span>
+        <button onclick="shareOrCopy()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-parchment-200/70 hover:bg-parchment-200 text-stone-700 hover:text-stone-900 text-xs font-semibold transition border border-stone-300/60 active:scale-95">
+          <i data-lucide="share-2" class="w-3.5 h-3.5 text-crimson-700"></i>
+          <span>Share</span>
         </button>
       </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <main class="flex-grow space-y-8 sm:space-y-16">
+    <!-- Main Content Area -->
+    <main class="flex-grow space-y-12 sm:space-y-16">
 
-      <section class="text-center space-y-4 sm:space-y-6 pt-1 sm:pt-2 max-w-3xl mx-auto px-1">
-        
-        <!-- Live Batch Pulse Badge -->
-        <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-gradient-to-r from-vivid-indigo/20 via-vivid-violet/20 to-vivid-pink/20 border border-vivid-indigo/40 backdrop-blur-xl text-[11px] sm:text-sm font-semibold text-indigo-200 shadow-md animate-float-slow">
-          <span class="flex h-2 w-2 relative">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
-          </span>
-          <span>Official Fund Drive</span>
-          <span class="text-slate-500">•</span>
-          <span class="text-purple-300 font-medium">Welcoming Freshers '28</span>
+      <!-- Hero Section -->
+      <section class="text-center space-y-4 sm:space-y-6 pt-2 max-w-2xl mx-auto">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-crimson-900/5 border border-crimson-900/15 text-xs font-semibold text-crimson-900 shadow-sm">
+          <span class="w-1.5 h-1.5 rounded-full bg-crimson-700"></span>
+          <span>Welcoming Freshers '28</span>
+          <span class="text-stone-400">•</span>
+          <span class="text-amber-800 font-medium">Class of 2027 Initiative</span>
         </div>
 
-        <!-- Hero Headline -->
-        <div class="space-y-2.5 sm:space-y-4">
-          <h2 class="font-display text-3xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.14] sm:leading-[1.08]">
-            Let's Set the Stage for <br class="hidden sm:inline" />
-            <span class="bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 bg-clip-text text-transparent">
-              Freshers Gala '26
+        <!-- Headline with Royal Warmth -->
+        <div class="space-y-3">
+          <h2 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold text-stone-900 tracking-tight leading-[1.12]">
+            Let's Host An <br class="hidden sm:inline" />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-crimson-900 via-rose-700 to-amber-700">
+              Unforgettable Welcome
             </span>
           </h2>
-          <p class="text-slate-300 text-xs sm:text-lg max-w-2xl mx-auto leading-relaxed font-normal px-2 sm:px-0">
-            It's our turn to keep the legacy alive. The 2nd-year batch invites you to contribute towards hosting the most epic freshers' welcome celebration in IIIT Bhopal's history.
+          <p class="text-stone-600 text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl mx-auto">
+            Honoring college tradition. As 2nd-year seniors, our batch comes together to host the grand Freshers' Gala for our juniors at IIIT Bhopal.
           </p>
         </div>
 
-        <!-- Interactive Department Chips -->
-        <div class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5 pt-1">
-          <span class="px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-lg sm:rounded-xl bg-dark-850 border border-white/10 text-[11px] sm:text-xs font-semibold text-slate-200 flex items-center gap-1.5 shadow-sm">
-            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-            CSE
+        <!-- Department Badges -->
+        <div class="flex items-center justify-center gap-2 pt-1 text-xs font-medium text-stone-600">
+          <span class="px-3 py-1 rounded-lg bg-white border border-stone-200/90 shadow-sm text-stone-700 font-semibold flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-rose-600"></span>CSE
           </span>
-          <span class="px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-lg sm:rounded-xl bg-dark-850 border border-white/10 text-[11px] sm:text-xs font-semibold text-slate-200 flex items-center gap-1.5 shadow-sm">
-            <span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
-            IT
+          <span class="px-3 py-1 rounded-lg bg-white border border-stone-200/90 shadow-sm text-stone-700 font-semibold flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-amber-600"></span>IT
           </span>
-          <span class="px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-lg sm:rounded-xl bg-dark-850 border border-white/10 text-[11px] sm:text-xs font-semibold text-slate-200 flex items-center gap-1.5 shadow-sm">
-            <span class="w-1.5 h-1.5 rounded-full bg-pink-400"></span>
-            ECE
+          <span class="px-3 py-1 rounded-lg bg-white border border-stone-200/90 shadow-sm text-stone-700 font-semibold flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-600"></span>ECE
           </span>
-          <span class="text-slate-500 mx-0.5 text-xs">•</span>
-          <span class="text-[11px] sm:text-xs font-mono text-indigo-300">All 2nd Years</span>
+          <span class="text-stone-400 hidden sm:inline">•</span>
+          <span class="text-stone-500 hidden sm:inline font-semibold">₹1,000 per student</span>
         </div>
-
       </section>
 
-      <!-- HOLOGRAPHIC VIP PASS / PAYMENT CARD -->
-      <section class="max-w-2xl mx-auto" id="payment-card-section">
-        <div class="relative group">
-          <!-- Animated Multi-Color Ambient Glow -->
-          <div class="absolute -inset-1 bg-gradient-to-r from-vivid-indigo via-vivid-violet to-vivid-pink rounded-3xl blur-xl sm:blur-2xl opacity-50 group-hover:opacity-75 transition-all duration-700 animate-pulse-glow"></div>
+      <!-- Centerpiece: Elevated Luxury Pass Card -->
+      <section class="max-w-xl mx-auto" id="payment-card-section">
+        <div class="pass-card-container">
+          <!-- Gold foil accent top ribbon -->
+          <div class="h-1.5 bg-gradient-to-r from-amber-500 via-rose-600 to-amber-600"></div>
 
-          <!-- Physical Pass Style Card -->
-          <div class="relative rounded-3xl bg-gradient-to-b from-dark-850 to-dark-900 border border-white/15 p-4 sm:p-8 shadow-2xl backdrop-blur-2xl space-y-5 sm:space-y-7 overflow-hidden">
-            
-            <!-- Metallic Shimmer Top Edge -->
-            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 via-indigo-500 to-pink-500"></div>
+          <div class="p-5 sm:p-8 space-y-6">
 
-            <!-- Pass Header Area -->
-            <div class="flex items-start justify-between gap-3 pb-4 sm:pb-6 border-b border-white/[0.08]">
+            <!-- Card Header & Amount Header -->
+            <div class="flex items-start justify-between gap-4 pb-5 border-b border-stone-200/90">
               <div class="space-y-1">
-                <div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider font-semibold">
-                  <i data-lucide="ticket" class="w-3 h-3"></i>
+                <span class="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-crimson-800 bg-rose-50 px-2.5 py-0.5 rounded-full border border-rose-200/70">
+                  <i data-lucide="sparkles" class="w-3 h-3 text-amber-600"></i>
                   SENIOR HOST PASS
-                </div>
-                <h3 class="font-display font-extrabold text-xl sm:text-2xl text-white">Freshers Gala 2026</h3>
-                <p class="text-[11px] sm:text-xs text-slate-400">Merchant: Aaditya Solankii (Committee)</p>
+                </span>
+                <h3 class="font-serif font-bold text-xl sm:text-2xl text-stone-900">Freshers Gala 2026</h3>
+                <p class="text-xs text-stone-500 font-medium">Merchant: Aaditya Solankii (Committee)</p>
               </div>
 
-              <!-- Price Box -->
-              <div class="text-right shrink-0 bg-white/[0.04] p-2.5 sm:p-0 rounded-xl sm:rounded-none border sm:border-0 border-white/[0.06]">
-                <span class="text-[10px] sm:text-[11px] uppercase tracking-wider font-mono text-slate-400">Amount</span>
-                <div class="flex items-baseline justify-end mt-0.5">
-                  <span class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight">₹1,000</span>
+              <div class="text-right shrink-0 bg-parchment-100/80 px-3.5 py-2 rounded-xl border border-stone-200">
+                <span class="text-[10px] uppercase font-bold tracking-wider text-stone-500 block">Amount</span>
+                <div class="flex items-baseline justify-end">
+                  <span class="font-serif font-bold text-3xl sm:text-4xl text-stone-900 tracking-tight">₹1,000</span>
                 </div>
-                <span class="text-[10px] sm:text-[11px] font-medium text-emerald-400 flex items-center justify-end gap-1 mt-0.5">
-                  <i data-lucide="check-circle-2" class="w-3 h-3"></i>
+                <span class="text-[10px] font-semibold text-emerald-700 flex items-center justify-end gap-1 mt-0.5">
+                  <i data-lucide="shield-check" class="w-3 h-3"></i>
                   All Inclusive
                 </span>
               </div>
             </div>
 
-            <!-- Features Included In This Pass (Rich Colored Tiles - Mobile Optimized 2x2 Grid) -->
-            <div class="space-y-2.5 sm:space-y-3">
-              <span class="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-slate-400 block font-semibold">What This Pass Covers:</span>
-              <div class="grid grid-cols-2 gap-2 sm:gap-3 text-xs">
+            <!-- Features / Event Inclusions (Warm Sophisticated Color Tiles) -->
+            <div class="space-y-2.5">
+              <span class="text-xs font-semibold text-stone-500 uppercase tracking-wider block">Everything Covered In This Pass:</span>
+              <div class="grid grid-cols-2 gap-2.5 text-xs">
                 
-                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] transition group/tile">
-                  <div class="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-gradient-to-tr from-purple-600/30 to-indigo-600/30 border border-purple-500/30 flex items-center justify-center shrink-0">
-                    <i data-lucide="disc-3" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-400 animate-spin-slow"></i>
+                <div class="feature-tile">
+                  <div class="feature-icon bg-rose-100 text-rose-700 border border-rose-200">
+                    <i data-lucide="music" class="w-4 h-4"></i>
                   </div>
                   <div>
-                    <h5 class="font-semibold text-white text-xs sm:text-sm">Concert & DJ</h5>
-                    <p class="text-[10px] sm:text-[11px] text-slate-400 hidden xs:block">Pro audio console & floor</p>
+                    <h4 class="font-semibold text-stone-900 text-xs sm:text-sm">Concert & DJ</h4>
+                    <p class="text-[11px] text-stone-500 hidden sm:block">Pro acoustics & floor</p>
                   </div>
                 </div>
 
-                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] transition group/tile">
-                  <div class="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-gradient-to-tr from-amber-600/30 to-pink-600/30 border border-amber-500/30 flex items-center justify-center shrink-0">
-                    <i data-lucide="utensils" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400"></i>
+                <div class="feature-tile">
+                  <div class="feature-icon bg-amber-100 text-amber-800 border border-amber-200">
+                    <i data-lucide="utensils" class="w-4 h-4"></i>
                   </div>
                   <div>
-                    <h5 class="font-semibold text-white text-xs sm:text-sm">Dinner Buffet</h5>
-                    <p class="text-[10px] sm:text-[11px] text-slate-400 hidden xs:block">Full course feast & drinks</p>
+                    <h4 class="font-semibold text-stone-900 text-xs sm:text-sm">Dinner Buffet</h4>
+                    <p class="text-[11px] text-stone-500 hidden sm:block">Grand feast & mocktails</p>
                   </div>
                 </div>
 
-                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] transition group/tile">
-                  <div class="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-gradient-to-tr from-cyan-600/30 to-blue-600/30 border border-cyan-500/30 flex items-center justify-center shrink-0">
-                    <i data-lucide="camera" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400"></i>
+                <div class="feature-tile">
+                  <div class="feature-icon bg-orange-100 text-orange-800 border border-orange-200">
+                    <i data-lucide="camera" class="w-4 h-4"></i>
                   </div>
                   <div>
-                    <h5 class="font-semibold text-white text-xs sm:text-sm">360° Studio</h5>
-                    <p class="text-[10px] sm:text-[11px] text-slate-400 hidden xs:block">High-res aftermovie & media</p>
+                    <h4 class="font-semibold text-stone-900 text-xs sm:text-sm">360° Media</h4>
+                    <p class="text-[11px] text-stone-500 hidden sm:block">Aftermovie & memories</p>
                   </div>
                 </div>
 
-                <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] transition group/tile">
-                  <div class="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-gradient-to-tr from-emerald-600/30 to-teal-600/30 border border-emerald-500/30 flex items-center justify-center shrink-0">
-                    <i data-lucide="crown" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400"></i>
+                <div class="feature-tile">
+                  <div class="feature-icon bg-emerald-100 text-emerald-800 border border-emerald-200">
+                    <i data-lucide="trophy" class="w-4 h-4"></i>
                   </div>
                   <div>
-                    <h5 class="font-semibold text-white text-xs sm:text-sm">Titles & Awards</h5>
-                    <p class="text-[10px] sm:text-[11px] text-slate-400 hidden xs:block">Mr. & Ms. Freshers trophies</p>
+                    <h4 class="font-semibold text-stone-900 text-xs sm:text-sm">Titles & Awards</h4>
+                    <p class="text-[11px] text-stone-500 hidden sm:block">Freshers crowns & trophies</p>
                   </div>
                 </div>
 
               </div>
             </div>
 
-            <!-- Action CTAs -->
-            <div class="space-y-3 pt-1 sm:pt-2">
-              
-              <!-- Direct Razorpay CTA Button -->
+            <!-- Primary Payment CTA (Crimson Wine & Amber Gradient) -->
+            <div class="space-y-3 pt-1">
               <a href="https://rzp.io/rzp/Zz811t3G" 
                  target="_blank" 
                  rel="noopener noreferrer"
                  id="pay-btn"
-                 class="relative group/cta w-full py-3.5 sm:py-4 px-5 sm:px-6 rounded-2xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-500 hover:via-purple-500 hover:to-pink-500 text-white font-display font-extrabold text-base sm:text-xl tracking-wide flex items-center justify-center gap-2.5 sm:gap-3 shadow-xl shadow-purple-600/30 active:scale-[0.98] transition-all duration-200">
-                <i data-lucide="credit-card" class="w-5 h-5 text-white stroke-[2.2]"></i>
+                 class="btn-crimson w-full py-3.5 sm:py-4 px-6 rounded-xl font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-lg shadow-crimson-900/20 active:scale-[0.98] transition">
+                <i data-lucide="credit-card" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-200"></i>
                 <span>Pay ₹1,000 via Razorpay</span>
-                <i data-lucide="arrow-right" class="w-4 h-4 sm:w-5 sm:h-5 group-hover/cta:translate-x-1 transition-transform stroke-[2.2]"></i>
+                <i data-lucide="arrow-right" class="w-4 h-4 sm:w-5 sm:h-5"></i>
               </a>
 
-              <!-- Secondary Row: Scan QR & Share Link -->
-              <div class="grid grid-cols-2 gap-2.5 sm:gap-3">
-                <button onclick="openQRModal()" class="py-2.5 sm:py-3 px-3 sm:px-4 rounded-xl bg-dark-800 hover:bg-dark-700 border border-white/10 text-slate-200 hover:text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition shadow-sm active:scale-95">
-                  <i data-lucide="qr-code" class="w-4 h-4 text-cyan-400"></i>
+              <!-- Secondary Actions: QR & Share -->
+              <div class="grid grid-cols-2 gap-2.5">
+                <button onclick="openQRModal()" class="btn-subtle text-xs sm:text-sm py-2.5 px-3">
+                  <i data-lucide="qr-code" class="w-4 h-4 text-amber-700"></i>
                   <span>Scan UPI QR</span>
                 </button>
-                <button onclick="shareOrCopy()" class="py-2.5 sm:py-3 px-3 sm:px-4 rounded-xl bg-dark-800 hover:bg-dark-700 border border-white/10 text-slate-200 hover:text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition shadow-sm active:scale-95">
-                  <i data-lucide="copy" class="w-4 h-4 text-purple-400"></i>
+                <button onclick="shareOrCopy()" class="btn-subtle text-xs sm:text-sm py-2.5 px-3">
+                  <i data-lucide="copy" class="w-4 h-4 text-rose-700"></i>
                   <span>Copy Link</span>
                 </button>
               </div>
 
-            </div>
-
-            <!-- Mobile UPI App Badges -->
-            <div class="pt-3.5 sm:pt-5 border-t border-white/[0.08] flex flex-col xs:flex-row items-center justify-between gap-2.5 text-xs text-slate-400">
-              <span class="flex items-center gap-1.5 font-medium text-slate-300 text-[11px] sm:text-xs">
-                <i data-lucide="shield-check" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400 stroke-[2]"></i>
-                Direct UPI (GPay / PhonePe / Paytm)
-              </span>
-              <div class="flex items-center gap-1.5 font-mono text-[10px] sm:text-[11px] font-semibold text-slate-300">
-                <span class="px-1.5 sm:px-2 py-0.5 rounded bg-dark-800 border border-white/10">UPI</span>
-                <span class="px-1.5 sm:px-2 py-0.5 rounded bg-dark-800 border border-white/10">Cards</span>
-                <span class="px-1.5 sm:px-2 py-0.5 rounded bg-dark-800 border border-white/10">NetBanking</span>
+              <!-- Payment Gateways Accepted -->
+              <div class="flex flex-wrap items-center justify-center gap-1.5 text-[11px] text-stone-500 pt-1">
+                <span class="pay-chip">UPI</span>
+                <span class="pay-chip">Google Pay</span>
+                <span class="pay-chip">PhonePe</span>
+                <span class="pay-chip">Paytm</span>
+                <span class="pay-chip">Debit/Credit</span>
+                <span class="pay-chip">NetBanking</span>
               </div>
             </div>
 
@@ -316,276 +285,231 @@
         </div>
       </section>
 
-      <!-- 4-STEP STREAMLINED PAYMENT PROTOCOL -->
-      <section class="space-y-4 sm:space-y-6">
+      <!-- 4-Step Contribution Process -->
+      <section class="space-y-6 max-w-3xl mx-auto">
         <div class="text-center space-y-1">
-          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/10 text-indigo-300 text-[10px] sm:text-xs font-mono font-semibold">
-            <span>STEP-BY-STEP</span>
-          </div>
-          <h3 class="font-display text-xl sm:text-3xl font-extrabold text-white">How Your Payment Works</h3>
-          <p class="text-slate-400 text-xs sm:text-sm max-w-lg mx-auto">Quick 60-second contribution process on your phone.</p>
+          <p class="text-xs font-bold text-crimson-800 uppercase tracking-widest">Simple & Verified</p>
+          <h3 class="font-serif font-bold text-2xl sm:text-3xl text-stone-900">How to contribute</h3>
         </div>
 
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
-          
-          <div class="p-3.5 sm:p-5 rounded-2xl bg-dark-900/90 border border-white/[0.08] space-y-2 sm:space-y-3 relative group">
-            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-indigo-500/15 border border-indigo-500/30 text-indigo-400 flex items-center justify-center font-mono font-bold text-xs sm:text-sm">
-              01
-            </div>
-            <h4 class="font-display font-bold text-xs sm:text-base text-white">Open Link or QR</h4>
-            <p class="text-[11px] sm:text-xs text-slate-400 leading-relaxed">
-              Tap <span class="text-indigo-300 font-semibold">Pay ₹1,000</span> to open Razorpay gateway.
-            </p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div class="step-card">
+            <span class="step-badge">01</span>
+            <h4 class="font-bold text-stone-900 text-xs sm:text-sm mt-2 mb-1">Open link</h4>
+            <p class="text-[11px] sm:text-xs text-stone-500 leading-relaxed">Click the Razorpay button or scan QR.</p>
           </div>
 
-          <div class="p-3.5 sm:p-5 rounded-2xl bg-dark-900/90 border border-white/[0.08] space-y-2 sm:space-y-3 relative group">
-            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-purple-500/15 border border-purple-500/30 text-purple-400 flex items-center justify-center font-mono font-bold text-xs sm:text-sm">
-              02
-            </div>
-            <h4 class="font-display font-bold text-xs sm:text-base text-white">Enter Batch Info</h4>
-            <p class="text-[11px] sm:text-xs text-slate-400 leading-relaxed">
-              Add your <span class="text-purple-300 font-semibold">Name & Scholar No.</span> in checkout.
-            </p>
+          <div class="step-card">
+            <span class="step-badge">02</span>
+            <h4 class="font-bold text-stone-900 text-xs sm:text-sm mt-2 mb-1">Fill info</h4>
+            <p class="text-[11px] sm:text-xs text-stone-500 leading-relaxed">Enter Name, Scholar No. & Branch.</p>
           </div>
 
-          <div class="p-3.5 sm:p-5 rounded-2xl bg-dark-900/90 border border-white/[0.08] space-y-2 sm:space-y-3 relative group">
-            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-pink-500/15 border border-pink-500/30 text-pink-400 flex items-center justify-center font-mono font-bold text-xs sm:text-sm">
-              03
-            </div>
-            <h4 class="font-display font-bold text-xs sm:text-base text-white">Pay via Any UPI</h4>
-            <p class="text-[11px] sm:text-xs text-slate-400 leading-relaxed">
-              Authorize via GPay, PhonePe, Paytm, or Cards.
-            </p>
+          <div class="step-card">
+            <span class="step-badge">03</span>
+            <h4 class="font-bold text-stone-900 text-xs sm:text-sm mt-2 mb-1">Pay ₹1,000</h4>
+            <p class="text-[11px] sm:text-xs text-stone-500 leading-relaxed">Use UPI, Card or NetBanking seamlessly.</p>
           </div>
 
-          <div class="p-3.5 sm:p-5 rounded-2xl bg-dark-900/90 border border-white/[0.08] space-y-2 sm:space-y-3 relative group">
-            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center font-mono font-bold text-xs sm:text-sm">
-              04
-            </div>
-            <h4 class="font-display font-bold text-xs sm:text-base text-white">Save Receipt</h4>
-            <p class="text-[11px] sm:text-xs text-slate-400 leading-relaxed">
-              Take a screenshot of the confirmation ID.
-            </p>
+          <div class="step-card">
+            <span class="step-badge">04</span>
+            <h4 class="font-bold text-stone-900 text-xs sm:text-sm mt-2 mb-1">Save receipt</h4>
+            <p class="text-[11px] sm:text-xs text-stone-500 leading-relaxed">Keep confirmation for batch verification.</p>
           </div>
-
         </div>
       </section>
 
-      <!-- TRANSPARENT FINANCIAL ALLOCATION -->
-      <section class="rounded-3xl bg-dark-900/90 border border-white/[0.08] p-4 sm:p-8 backdrop-blur-md space-y-4 sm:space-y-6">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 sm:pb-4 border-b border-white/[0.06]">
+      <!-- Transparent Fund Allocation -->
+      <section class="space-y-6 max-w-2xl mx-auto">
+        <div class="text-center space-y-1">
+          <p class="text-xs font-bold text-crimson-800 uppercase tracking-widest">100% Transparency</p>
+          <h3 class="font-serif font-bold text-2xl sm:text-3xl text-stone-900">Where the funds go</h3>
+          <p class="text-xs text-stone-500">Every rupee collected is allocated directly toward event production</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 sm:p-7 border border-stone-200/90 shadow-sm space-y-5">
           <div>
-            <div class="flex items-center gap-1.5 text-indigo-400 text-[10px] sm:text-xs font-mono uppercase tracking-wider font-semibold">
-              <i data-lucide="pie-chart" class="w-3.5 h-3.5"></i>
-              <span>Financial Transparency</span>
+            <div class="flex justify-between items-center mb-1.5">
+              <span class="text-xs sm:text-sm font-semibold text-stone-800 flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>Catering & Refreshments
+              </span>
+              <span class="text-xs sm:text-sm font-bold text-amber-700">40%</span>
             </div>
-            <h3 class="font-display text-lg sm:text-2xl font-bold text-white mt-0.5">Resource Allocation Blueprint</h3>
-            <p class="text-slate-400 text-xs sm:text-sm">100% dedicated to event production, catering, and student experiences.</p>
-          </div>
-          <div class="text-[10px] sm:text-xs font-mono font-semibold px-2.5 py-1 rounded-lg bg-white/[0.05] border border-white/10 text-indigo-300 w-fit">
-            IIIT Bhopal Committee
-          </div>
-        </div>
-
-        <!-- 4-Card Allocation Breakdown (Mobile 2x2 Grid) -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 pt-1">
-          
-          <div class="p-3 sm:p-4 rounded-2xl bg-dark-850/80 border border-white/[0.06] space-y-1.5">
-            <div class="flex items-center justify-between">
-              <span class="text-[10px] sm:text-xs font-mono uppercase text-amber-400 font-semibold">Catering</span>
-              <span class="font-display font-extrabold text-white text-base sm:text-lg">40%</span>
+            <div class="progress-track">
+              <div class="progress-bar bg-gradient-to-r from-amber-500 to-amber-400" style="width: 40%"></div>
             </div>
-            <h5 class="font-display font-bold text-slate-200 text-xs sm:text-sm">Dinner Buffet</h5>
-            <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed hidden xs:block">Banquet buffet, appetizers, desserts.</p>
           </div>
 
-          <div class="p-3 sm:p-4 rounded-2xl bg-dark-850/80 border border-white/[0.06] space-y-1.5">
-            <div class="flex items-center justify-between">
-              <span class="text-[10px] sm:text-xs font-mono uppercase text-purple-400 font-semibold">Production</span>
-              <span class="font-display font-extrabold text-white text-base sm:text-lg">30%</span>
+          <div>
+            <div class="flex justify-between items-center mb-1.5">
+              <span class="text-xs sm:text-sm font-semibold text-stone-800 flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-600"></span>Pro Sound, Stage & DJ
+              </span>
+              <span class="text-xs sm:text-sm font-bold text-rose-700">30%</span>
             </div>
-            <h5 class="font-display font-bold text-slate-200 text-xs sm:text-sm">DJ & Audio</h5>
-            <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed hidden xs:block">Speaker stacks, lighting, pro DJ.</p>
+            <div class="progress-track">
+              <div class="progress-bar bg-gradient-to-r from-rose-600 to-rose-400" style="width: 30%"></div>
+            </div>
           </div>
 
-          <div class="p-3 sm:p-4 rounded-2xl bg-dark-850/80 border border-white/[0.06] space-y-1.5">
-            <div class="flex items-center justify-between">
-              <span class="text-[10px] sm:text-xs font-mono uppercase text-cyan-400 font-semibold">Ambiance</span>
-              <span class="font-display font-extrabold text-white text-base sm:text-lg">15%</span>
+          <div>
+            <div class="flex justify-between items-center mb-1.5">
+              <span class="text-xs sm:text-sm font-semibold text-stone-800 flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-orange-500"></span>Venue, Lights & Décor
+              </span>
+              <span class="text-xs sm:text-sm font-bold text-orange-700">15%</span>
             </div>
-            <h5 class="font-display font-bold text-slate-200 text-xs sm:text-sm">Auditorium</h5>
-            <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed hidden xs:block">Hall decor, red carpet, photo walls.</p>
+            <div class="progress-track">
+              <div class="progress-bar bg-gradient-to-r from-orange-500 to-orange-400" style="width: 15%"></div>
+            </div>
           </div>
 
-          <div class="p-3 sm:p-4 rounded-2xl bg-dark-850/80 border border-white/[0.06] space-y-1.5">
-            <div class="flex items-center justify-between">
-              <span class="text-[10px] sm:text-xs font-mono uppercase text-emerald-400 font-semibold">Titles</span>
-              <span class="font-display font-extrabold text-white text-base sm:text-lg">15%</span>
+          <div>
+            <div class="flex justify-between items-center mb-1.5">
+              <span class="text-xs sm:text-sm font-semibold text-stone-800 flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span>Photography, Titles & Awards
+              </span>
+              <span class="text-xs sm:text-sm font-bold text-emerald-700">15%</span>
             </div>
-            <h5 class="font-display font-bold text-slate-200 text-xs sm:text-sm">Media Crew</h5>
-            <p class="text-[10px] sm:text-[11px] text-slate-400 leading-relaxed hidden xs:block">Trophies, sashes, 360° photobooth.</p>
+            <div class="progress-track">
+              <div class="progress-bar bg-gradient-to-r from-emerald-600 to-emerald-400" style="width: 15%"></div>
+            </div>
           </div>
-
         </div>
       </section>
 
-      <!-- FREQUENTLY ASKED QUESTIONS (FAQ) -->
-      <section class="space-y-4 sm:space-y-6">
+      <!-- Frequently Asked Questions -->
+      <section class="space-y-6 max-w-2xl mx-auto">
         <div class="text-center space-y-1">
-          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/10 text-indigo-300 text-[10px] sm:text-xs font-mono font-semibold">
-            <span>CLARIFICATIONS</span>
-          </div>
-          <h3 class="font-display text-xl sm:text-3xl font-extrabold text-white">Frequently Asked Questions</h3>
-          <p class="text-slate-400 text-xs sm:text-sm max-w-lg mx-auto">Quick answers for 2nd-year contributors.</p>
+          <p class="text-xs font-bold text-crimson-800 uppercase tracking-widest">Got Questions?</p>
+          <h3 class="font-serif font-bold text-2xl sm:text-3xl text-stone-900">Frequently Asked Questions</h3>
         </div>
 
-        <div class="space-y-2.5 sm:space-y-3 max-w-2xl mx-auto" id="faq-container">
-          
-          <!-- FAQ 1 -->
-          <div class="rounded-2xl bg-dark-900/90 border border-white/[0.08] overflow-hidden">
-            <button class="faq-toggle w-full text-left p-4 sm:p-5 flex items-center justify-between gap-3 font-display font-bold text-slate-100 hover:text-indigo-300 transition">
-              <span class="text-xs sm:text-base">Why do 2nd year students contribute?</span>
-              <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 shrink-0 transition-transform duration-200"></i>
+        <div class="bg-white rounded-2xl border border-stone-200/90 shadow-sm divide-y divide-stone-200" id="faq-container">
+          <div>
+            <button class="faq-btn" aria-expanded="false">
+              <span>Why do 2nd-year students contribute?</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-stone-400 shrink-0 transition-transform"></i>
             </button>
-            <div class="faq-content hidden px-4 sm:px-5 pb-4 sm:pb-5 text-xs sm:text-sm text-slate-400 border-t border-white/[0.04] pt-2.5 leading-relaxed">
-              As per college tradition at IIIT Bhopal, the 2nd-year batch takes pride in organizing and welcoming the junior batch. The fund pools resources for venue rental, food catering, DJ setup, and felicitations.
+            <div class="faq-panel">
+              <p>Freshers' welcome is a cherished collegiate tradition nationwide. Every year, the sophomore batch hosts and funds the welcoming ceremony for incoming freshers. Our seniors did it for us, and now it's our turn to deliver an even greater celebration.</p>
             </div>
           </div>
 
-          <!-- FAQ 2 -->
-          <div class="rounded-2xl bg-dark-900/90 border border-white/[0.08] overflow-hidden">
-            <button class="faq-toggle w-full text-left p-4 sm:p-5 flex items-center justify-between gap-3 font-display font-bold text-slate-100 hover:text-indigo-300 transition">
-              <span class="text-xs sm:text-base">What payment methods are supported?</span>
-              <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 shrink-0 transition-transform duration-200"></i>
+          <div>
+            <button class="faq-btn" aria-expanded="false">
+              <span>Is my payment safe via Razorpay?</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-stone-400 shrink-0 transition-transform"></i>
             </button>
-            <div class="faq-content hidden px-4 sm:px-5 pb-4 sm:pb-5 text-xs sm:text-sm text-slate-400 border-t border-white/[0.04] pt-2.5 leading-relaxed">
-              All major UPI apps (Google Pay, PhonePe, Paytm, BHIM, CRED), Debit and Credit Cards (Visa, Mastercard, RuPay), and NetBanking are fully supported via Razorpay.
+            <div class="faq-panel">
+              <p>Yes, 100%. Payments are processed through Razorpay's RBI-regulated payment gateway with 256-bit bank-grade encryption. Instant digital receipts and UTR numbers are generated automatically.</p>
             </div>
           </div>
 
-          <!-- FAQ 3 -->
-          <div class="rounded-2xl bg-dark-900/90 border border-white/[0.08] overflow-hidden">
-            <button class="faq-toggle w-full text-left p-4 sm:p-5 flex items-center justify-between gap-3 font-display font-bold text-slate-100 hover:text-indigo-300 transition">
-              <span class="text-xs sm:text-base">What if money got deducted but session timed out?</span>
-              <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 shrink-0 transition-transform duration-200"></i>
+          <div>
+            <button class="faq-btn" aria-expanded="false">
+              <span>Can I pay for a batchmate or friend?</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-stone-400 shrink-0 transition-transform"></i>
             </button>
-            <div class="faq-content hidden px-4 sm:px-5 pb-4 sm:pb-5 text-xs sm:text-sm text-slate-400 border-t border-white/[0.04] pt-2.5 leading-relaxed">
-              Razorpay is an RBI-authorized gateway. Any failed transaction is automatically reversed back to your bank account within 2-3 banking days. You can also share your UPI UTR number with the coordinators for manual verification.
+            <div class="faq-panel">
+              <p>Yes. When the Razorpay page opens, simply enter your friend's Full Name, Scholar Number, and Branch in the form fields, then complete the transaction and send them the receipt.</p>
             </div>
           </div>
 
-          <!-- FAQ 4 -->
-          <div class="rounded-2xl bg-dark-900/90 border border-white/[0.08] overflow-hidden">
-            <button class="faq-toggle w-full text-left p-4 sm:p-5 flex items-center justify-between gap-3 font-display font-bold text-slate-100 hover:text-indigo-300 transition">
-              <span class="text-xs sm:text-base">Can I pay on behalf of my classmate?</span>
-              <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 shrink-0 transition-transform duration-200"></i>
+          <div>
+            <button class="faq-btn" aria-expanded="false">
+              <span>What if amount was debited but page showed an error?</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-stone-400 shrink-0 transition-transform"></i>
             </button>
-            <div class="faq-content hidden px-4 sm:px-5 pb-4 sm:pb-5 text-xs sm:text-sm text-slate-400 border-t border-white/[0.04] pt-2.5 leading-relaxed">
-              Yes! Enter their Roll Number and Full Name during checkout notes, and forward the receipt screenshot to them.
+            <div class="faq-panel">
+              <p>Do not worry. Banking networks occasionally experience UPI sync delays. If your amount was deducted, Razorpay automatically reconciles or reverses it within 24-48 hours. You can also share the UTR reference with Aaditya Solankii for verification.</p>
             </div>
           </div>
-
         </div>
       </section>
 
-      <!-- COMMITTEE CONTACT & WHATSAPP SUPPORT -->
-      <section class="rounded-3xl bg-gradient-to-r from-dark-850 via-dark-900 to-dark-850 border border-white/[0.09] p-4 sm:p-8 backdrop-blur-md shadow-2xl">
-        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6">
-          <div class="space-y-1.5">
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-vivid-indigo/15 text-indigo-300 text-[10px] sm:text-xs font-mono font-semibold border border-vivid-indigo/30">
-              <i data-lucide="users" class="w-3.5 h-3.5"></i>
-              Freshers '26 Committee
+      <!-- Organising Committee & WhatsApp Contact (Rich Velvet Wine Card) -->
+      <section class="max-w-2xl mx-auto">
+        <div class="contact-card">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-5 relative z-10">
+            <div class="space-y-1">
+              <span class="text-[10px] uppercase font-bold tracking-wider text-amber-300 bg-amber-400/10 px-2 py-0.5 rounded border border-amber-400/20">Official Support</span>
+              <h3 class="font-serif font-bold text-xl sm:text-2xl text-white">Have questions or issues?</h3>
+              <p class="text-xs sm:text-sm text-rose-100/80">Connect with the Freshers '26 organising team directly.</p>
             </div>
-            <h3 class="font-display text-lg sm:text-2xl font-bold text-white">Have questions or issues?</h3>
-            <p class="text-xs sm:text-sm text-slate-400 max-w-lg">
-              Contact Aaditya Solankii and the coordinators directly on WhatsApp for help.
-            </p>
-          </div>
 
-          <div class="flex items-center gap-2.5 w-full sm:w-auto">
-            <a href="https://wa.me/?text=Hello%2C%20I%20have%20a%20query%20regarding%20the%20IIIT%20Bhopal%20Freshers%20contribution%20payment%20(Link%3A%20https%3A%2F%2Frzp.io%2Frzp%2FZz811t3G)" 
-               target="_blank" 
-               class="flex-1 sm:flex-initial px-4 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20 active:scale-95 transition">
-              <i data-lucide="message-circle" class="w-4 h-4"></i>
-              <span>WhatsApp Us</span>
-            </a>
-            <button onclick="shareOrCopy()" class="px-4 py-3 rounded-xl bg-dark-800 hover:bg-dark-700 text-slate-200 hover:text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 border border-white/10 active:scale-95 transition">
-              <i data-lucide="share-2" class="w-4 h-4"></i>
-              <span>Share</span>
-            </button>
-          </div>
-        </div>
+            <div class="flex items-center gap-2.5 shrink-0">
+              <a href="https://wa.me/?text=Hi%2C%20I%20have%20a%20query%20about%20the%20IIIT%20Bhopal%20Freshers%20contribution%3A%20https%3A%2F%2Frzp.io%2Frzp%2FZz811t3G" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 class="whatsapp-btn">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                <span>WhatsApp</span>
+              </a>
 
-        <div class="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-2 text-[10px] sm:text-xs text-slate-500 font-mono text-center sm:text-left">
-          <p>Organized by B.Tech Class of 2027 • IIIT Bhopal</p>
-          <p>Merchant: Aaditya Solankii</p>
+              <button onclick="shareOrCopy()" class="share-white-btn">
+                <i data-lucide="share" class="w-4 h-4"></i>
+                <span>Share</span>
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 
     </main>
 
-    <!-- FOOTER -->
-    <footer class="pt-8 sm:pt-10 pb-4 text-center text-[10px] sm:text-xs text-slate-500 space-y-1.5 font-mono">
-      <p>© 2026 IIIT Bhopal Freshers Committee. All rights reserved.</p>
-      <p class="text-slate-600">Official Razorpay Gateway: rzp.io/rzp/Zz811t3G</p>
+    <!-- Footer -->
+    <footer class="mt-14 py-6 border-t border-stone-200 text-center text-xs text-stone-500 space-y-1">
+      <p class="font-medium text-stone-700">© 2026 IIIT Bhopal Freshers Organising Committee • Lead: Aaditya Solankii</p>
+      <p class="text-[11px] text-stone-400">Official collection page for B.Tech Class of 2027 • Payments secured by Razorpay</p>
     </footer>
 
   </div>
 
-  <!-- STICKY FLOATING BOTTOM BAR FOR MOBILE PHONES -->
-  <div class="sm:hidden fixed bottom-0 left-0 right-0 z-40 p-3 bg-dark-950/95 backdrop-blur-2xl border-t border-white/10 shadow-2xl safe-area-bottom">
-    <div class="flex items-center gap-2.5 max-w-md mx-auto">
-      <div class="pl-1">
-        <span class="text-[10px] font-mono text-slate-400 block uppercase tracking-wider">Pass Fee</span>
-        <span class="font-display font-extrabold text-xl text-white leading-none">₹1,000</span>
+  <!-- Mobile Sticky Floating Dock (Thumb-friendly, iOS safe-area ready) -->
+  <div class="mobile-dock sm:hidden">
+    <div class="flex items-center justify-between gap-3 px-4 max-w-lg mx-auto">
+      <div class="shrink-0">
+        <span class="text-[10px] uppercase font-bold tracking-wider text-stone-500 block leading-none">Contribution</span>
+        <span class="font-serif font-bold text-xl text-stone-900 leading-tight">₹1,000</span>
       </div>
       <a href="https://rzp.io/rzp/Zz811t3G" 
          target="_blank" 
          rel="noopener noreferrer"
-         onclick="triggerConfetti()"
-         class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white font-display font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-purple-600/30 active:scale-[0.98] transition">
-        <span>Pay ₹1,000</span>
+         class="mobile-pay-btn">
+        <span>Pay ₹1,000 Now</span>
         <i data-lucide="arrow-right" class="w-4 h-4"></i>
       </a>
-      <button onclick="openQRModal()" class="w-11 h-11 rounded-xl bg-dark-800 border border-white/15 text-cyan-400 flex items-center justify-center shrink-0 active:scale-95 transition">
-        <i data-lucide="qr-code" class="w-5 h-5"></i>
-      </button>
     </div>
   </div>
 
-  <!-- QR CODE MODAL (MOBILE RESPONSIVE) -->
-  <div id="qr-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300">
-    <div class="relative w-full max-w-[320px] sm:max-w-sm rounded-3xl bg-dark-900 border border-white/15 p-5 sm:p-8 shadow-2xl space-y-4 sm:space-y-5 text-center transform scale-95 transition-transform duration-300" id="qr-modal-content">
-      
-      <!-- Close Button -->
-      <button onclick="closeQRModal()" class="absolute top-3.5 right-3.5 p-2 rounded-full bg-white/[0.05] hover:bg-white/[0.1] text-slate-400 hover:text-white transition">
-        <i data-lucide="x" class="w-4 h-4 stroke-[2]"></i>
+  <!-- UPI QR Code Modal Dialog -->
+  <div id="qr-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="qr-modal-title">
+    <div class="modal-box">
+      <button onclick="closeQRModal()" class="modal-close-btn" aria-label="Close modal">
+        <i data-lucide="x" class="w-4 h-4"></i>
       </button>
 
-      <div class="space-y-0.5">
-        <span class="text-[10px] sm:text-[11px] font-mono uppercase font-semibold text-indigo-400 tracking-wider">UPI / Card Gateway</span>
-        <h3 class="font-display text-lg sm:text-xl font-bold text-white">Scan & Contribute</h3>
-        <p class="text-[11px] sm:text-xs text-slate-400">GPay, PhonePe, Paytm, or BHIM</p>
-      </div>
+      <span class="text-[10px] uppercase font-bold tracking-widest text-crimson-800 bg-rose-50 px-2.5 py-0.5 rounded-full border border-rose-200">
+        Instant UPI Scan
+      </span>
+      <h3 id="qr-modal-title" class="font-serif font-bold text-xl text-stone-900 mt-1">Scan & Pay ₹1,000</h3>
+      <p class="text-xs text-stone-500">Scan with any UPI app (Google Pay, PhonePe, Paytm, CRED)</p>
 
-      <!-- QR Code Canvas Container -->
-      <div class="p-3 sm:p-4 rounded-2xl bg-white flex items-center justify-center shadow-inner mx-auto w-[190px] h-[190px] sm:w-[220px] sm:h-[220px]">
+      <div class="qr-canvas-wrapper my-2">
         <div id="qrcode"></div>
       </div>
 
-      <div class="space-y-0.5">
-        <div class="font-display font-extrabold text-xl sm:text-2xl text-white">₹1,000</div>
-        <p class="text-[10px] sm:text-[11px] font-mono text-emerald-400">Merchant: FRESHERS 2026 COMITTEE</p>
-      </div>
-
-      <!-- Button in Modal -->
-      <div class="space-y-2 pt-1">
-        <a href="https://rzp.io/rzp/Zz811t3G" target="_blank" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/30 transition active:scale-95">
+      <div class="w-full space-y-2 pt-1">
+        <a href="https://rzp.io/rzp/Zz811t3G" target="_blank" rel="noopener noreferrer" class="btn-crimson w-full py-2.5 text-xs font-bold rounded-lg flex items-center justify-center gap-1.5">
           <span>Open Direct Checkout</span>
-          <i data-lucide="external-link" class="w-4 h-4 stroke-[2]"></i>
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
         </a>
+        <button onclick="copyToClipboard()" class="btn-subtle w-full py-2 text-xs font-semibold rounded-lg flex items-center justify-center gap-1.5">
+          <i data-lucide="copy" class="w-3.5 h-3.5 text-rose-700"></i>
+          <span>Copy Razorpay Link</span>
+        </button>
       </div>
-
     </div>
   </div>
 
