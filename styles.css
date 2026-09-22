@@ -1,0 +1,67 @@
+/* Freshers Gala '26 Mobile & Desktop Aesthetics */
+
+/* Mobile viewport & touch enhancements */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* iOS Safe Area handling */
+.safe-area-bottom {
+  padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+}
+
+/* Smooth custom dark scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #07090e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Accordion Smooth Transitions */
+.faq-toggle i {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-toggle.active i {
+  transform: rotate(180deg);
+}
+
+/* Crisp QR Code Output */
+#qrcode img, #qrcode canvas {
+  margin: 0 auto;
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Toast Animation */
+#toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Modal Open Transitions */
+#qr-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#qr-modal.active #qr-modal-content {
+  transform: scale(1);
+}
