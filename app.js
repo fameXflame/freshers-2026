@@ -19,7 +19,18 @@ document.addEventListener("DOMContentLoaded", () => {
   setupFAQs();
   setupPaymentFlow();
   listenForPaymentSuccess();
+  checkUrlPaymentParams();
 });
+
+// Check if user was redirected back to the site after successful payment
+function checkUrlPaymentParams() {
+  const params = new URLSearchParams(window.location.search);
+  const paymentId = params.get("razorpay_payment_id") || params.get("payment_id");
+  if (paymentId || params.get("status") === "success" || params.get("payment") === "success") {
+    paymentCompleted = true;
+    handlePaymentSuccess(paymentId || "verified-via-redirect");
+  }
+}
 
 // ==========================================================================
 // QR Code
@@ -158,9 +169,10 @@ function listenForPaymentSuccess() {
       try { data = JSON.parse(data); } catch { return; }
     }
 
-    // Razorpay payment success patterns
+    // Razorpay payment success patterns (including button iframe messages)
     const isSuccess =
       (data.event === "payment.success") ||
+      (data.event_type === "redirect_to_on_payment_success") ||
       (data.razorpay_payment_id) ||
       (data.payload && data.payload.payment && data.payload.payment.entity) ||
       (data["payment.success"]);
@@ -170,6 +182,7 @@ function listenForPaymentSuccess() {
 
       const paymentId =
         data.razorpay_payment_id ||
+        (data.data && data.data.payment_id) ||
         (data.payload?.payment?.entity?.id) ||
         (data.response?.razorpay_payment_id) ||
         "verified";
