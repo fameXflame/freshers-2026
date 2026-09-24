@@ -76,7 +76,7 @@
 
 <body class="bg-parchment-100 text-stone-800 font-sans antialiased selection:bg-crimson-800 selection:text-white pb-24 sm:pb-12">
 
-  <!-- Ambient Luxury Depth (Warm gold + subtle crimson radiance, warm textured feel) -->
+  <!-- Ambient Luxury Depth -->
   <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
     <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] sm:w-[1000px] h-[480px] bg-gradient-to-b from-amber-200/35 via-rose-200/25 to-transparent rounded-full blur-3xl"></div>
     <div class="absolute top-[40%] -left-32 w-[420px] h-[420px] bg-rose-200/20 rounded-full blur-3xl"></div>
@@ -90,7 +90,7 @@
     </div>
     <div>
       <p id="toast-message" class="text-xs sm:text-sm font-semibold text-stone-900">Payment link copied!</p>
-      <p class="text-[11px] text-stone-500">Share with batchmates on WhatsApp</p>
+      <p id="toast-sub" class="text-[11px] text-stone-500">Share with batchmates on WhatsApp</p>
     </div>
   </div>
 
@@ -130,7 +130,6 @@
 
       <!-- Hero Section -->
       <section class="text-center space-y-4 sm:space-y-6 pt-2 max-w-2xl mx-auto">
-        <!-- Badge -->
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-crimson-900/5 border border-crimson-900/15 text-xs font-semibold text-crimson-900 shadow-sm">
           <span class="w-1.5 h-1.5 rounded-full bg-crimson-700"></span>
           <span>Welcoming Freshers '28</span>
@@ -138,7 +137,6 @@
           <span class="text-amber-800 font-medium">Class of 2027 Initiative</span>
         </div>
 
-        <!-- Headline with Royal Warmth -->
         <div class="space-y-3">
           <h2 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold text-stone-900 tracking-tight leading-[1.12]">
             Let's Host An <br class="hidden sm:inline" />
@@ -151,7 +149,6 @@
           </p>
         </div>
 
-        <!-- Department Badges -->
         <div class="flex items-center justify-center gap-2 pt-1 text-xs font-medium text-stone-600">
           <span class="px-3 py-1 rounded-lg bg-white border border-stone-200/90 shadow-sm text-stone-700 font-semibold flex items-center gap-1.5">
             <span class="w-2 h-2 rounded-full bg-rose-600"></span>CSE
@@ -167,15 +164,14 @@
         </div>
       </section>
 
-      <!-- Centerpiece: Elevated Luxury Pass Card -->
+      <!-- Centerpiece: Payment Card with Student Form + Razorpay Button -->
       <section class="max-w-xl mx-auto" id="payment-card-section">
         <div class="pass-card-container">
-          <!-- Gold foil accent top ribbon -->
           <div class="h-1.5 bg-gradient-to-r from-amber-500 via-rose-600 to-amber-600"></div>
 
           <div class="p-5 sm:p-8 space-y-6">
 
-            <!-- Card Header & Amount Header -->
+            <!-- Card Header & Amount -->
             <div class="flex items-start justify-between gap-4 pb-5 border-b border-stone-200/90">
               <div class="space-y-1">
                 <span class="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-crimson-800 bg-rose-50 px-2.5 py-0.5 rounded-full border border-rose-200/70">
@@ -185,7 +181,6 @@
                 <h3 class="font-serif font-bold text-xl sm:text-2xl text-stone-900">Freshers Gala 2026</h3>
                 <p class="text-xs text-stone-500 font-medium">Merchant: Aaditya Solankii (Committee)</p>
               </div>
-
               <div class="text-right shrink-0 bg-parchment-100/80 px-3.5 py-2 rounded-xl border border-stone-200">
                 <span class="text-[10px] uppercase font-bold tracking-wider text-stone-500 block">Amount</span>
                 <div class="flex items-baseline justify-end">
@@ -198,11 +193,10 @@
               </div>
             </div>
 
-            <!-- Features / Event Inclusions (Warm Sophisticated Color Tiles) -->
+            <!-- Features / Event Inclusions -->
             <div class="space-y-2.5">
               <span class="text-xs font-semibold text-stone-500 uppercase tracking-wider block">Everything Covered In This Pass:</span>
               <div class="grid grid-cols-2 gap-2.5 text-xs">
-                
                 <div class="feature-tile">
                   <div class="feature-icon bg-rose-100 text-rose-700 border border-rose-200">
                     <i data-lucide="music" class="w-4 h-4"></i>
@@ -212,7 +206,6 @@
                     <p class="text-[11px] text-stone-500 hidden sm:block">Pro acoustics & floor</p>
                   </div>
                 </div>
-
                 <div class="feature-tile">
                   <div class="feature-icon bg-amber-100 text-amber-800 border border-amber-200">
                     <i data-lucide="utensils" class="w-4 h-4"></i>
@@ -222,7 +215,6 @@
                     <p class="text-[11px] text-stone-500 hidden sm:block">Grand feast & mocktails</p>
                   </div>
                 </div>
-
                 <div class="feature-tile">
                   <div class="feature-icon bg-orange-100 text-orange-800 border border-orange-200">
                     <i data-lucide="camera" class="w-4 h-4"></i>
@@ -232,7 +224,6 @@
                     <p class="text-[11px] text-stone-500 hidden sm:block">Aftermovie & memories</p>
                   </div>
                 </div>
-
                 <div class="feature-tile">
                   <div class="feature-icon bg-emerald-100 text-emerald-800 border border-emerald-200">
                     <i data-lucide="trophy" class="w-4 h-4"></i>
@@ -242,24 +233,70 @@
                     <p class="text-[11px] text-stone-500 hidden sm:block">Freshers crowns & trophies</p>
                   </div>
                 </div>
-
               </div>
             </div>
 
-            <!-- Primary Payment CTA (Crimson Wine & Amber Gradient) -->
-            <div class="space-y-3 pt-1">
-              <a href="https://rzp.io/rzp/Zz811t3G" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 id="pay-btn"
-                 class="btn-crimson w-full py-3.5 sm:py-4 px-6 rounded-xl font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-lg shadow-crimson-900/20 active:scale-[0.98] transition">
+            <!-- Student Details Form -->
+            <div class="space-y-3" id="student-form-section">
+              <span class="text-xs font-semibold text-stone-500 uppercase tracking-wider block flex items-center gap-1.5">
+                <i data-lucide="user" class="w-3.5 h-3.5 text-crimson-800"></i>
+                Your Details (Required)
+              </span>
+
+              <div class="space-y-2.5">
+                <div>
+                  <input type="text" id="student-name" placeholder="Full Name"
+                    class="form-input" autocomplete="name" required>
+                  <p class="field-error hidden" id="name-error">Please enter your name</p>
+                </div>
+                <div>
+                  <input type="tel" id="student-phone" placeholder="Phone Number (10 digits)"
+                    class="form-input" autocomplete="tel" maxlength="10" inputmode="numeric" required>
+                  <p class="field-error hidden" id="phone-error">Enter a valid 10-digit phone number</p>
+                </div>
+                <div>
+                  <input type="text" id="student-scholar" placeholder="Scholar Number"
+                    class="form-input" autocomplete="off" required>
+                  <p class="field-error hidden" id="scholar-error">Please enter your scholar number</p>
+                </div>
+              </div>
+
+              <p class="text-[11px] text-stone-400 flex items-center gap-1 pt-0.5">
+                <i data-lucide="lock" class="w-3 h-3"></i>
+                Details are recorded only after successful payment verification
+              </p>
+            </div>
+
+            <!-- Payment Section -->
+            <div class="space-y-3 pt-1" id="payment-section">
+              
+              <!-- Our custom pay button (validates form, then triggers Razorpay) -->
+              <button type="button" id="custom-pay-btn"
+                class="btn-crimson w-full py-3.5 sm:py-4 px-6 rounded-xl font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-lg shadow-crimson-900/20 active:scale-[0.98] transition">
                 <i data-lucide="credit-card" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-200"></i>
                 <span>Pay ₹1,000 via Razorpay</span>
                 <i data-lucide="arrow-right" class="w-4 h-4 sm:w-5 sm:h-5"></i>
-              </a>
+              </button>
+
+              <!-- Hidden Razorpay Payment Button (auto-loaded, visually hidden) -->
+              <div id="rzp-button-container" style="position:absolute;left:-9999px;opacity:0;pointer-events:none;">
+                <form id="rzp-form">
+                  <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_Tfnu4FCZdOCFQq" async></script>
+                </form>
+              </div>
+
+              <!-- Success state (hidden initially) -->
+              <div id="payment-success" class="hidden text-center py-6 space-y-3">
+                <div class="w-14 h-14 rounded-full bg-emerald-100 flex items-center justify-center mx-auto">
+                  <i data-lucide="check-circle-2" class="w-7 h-7 text-emerald-700"></i>
+                </div>
+                <h4 class="font-serif font-bold text-xl text-stone-900">Payment Successful!</h4>
+                <p class="text-sm text-stone-600">Your details have been recorded. Thank you for your contribution!</p>
+                <p class="text-xs text-stone-400" id="payment-id-display"></p>
+              </div>
 
               <!-- Secondary Actions: QR & Share -->
-              <div class="grid grid-cols-2 gap-2.5">
+              <div class="grid grid-cols-2 gap-2.5" id="secondary-actions">
                 <button onclick="openQRModal()" class="btn-subtle text-xs sm:text-sm py-2.5 px-3">
                   <i data-lucide="qr-code" class="w-4 h-4 text-amber-700"></i>
                   <span>Scan UPI QR</span>
@@ -295,26 +332,23 @@
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <div class="step-card">
             <span class="step-badge">01</span>
-            <h4 class="font-bold text-stone-900 text-xs sm:text-sm mt-2 mb-1">Open link</h4>
-            <p class="text-[11px] sm:text-xs text-stone-500 leading-relaxed">Click the Razorpay button or scan QR.</p>
+            <h4 class="font-bold text-stone-900 text-xs sm:text-sm mt-2 mb-1">Fill details</h4>
+            <p class="text-[11px] sm:text-xs text-stone-500 leading-relaxed">Enter your name, phone & scholar number.</p>
           </div>
-
           <div class="step-card">
             <span class="step-badge">02</span>
-            <h4 class="font-bold text-stone-900 text-xs sm:text-sm mt-2 mb-1">Fill info</h4>
-            <p class="text-[11px] sm:text-xs text-stone-500 leading-relaxed">Enter Name, Scholar No. & Branch.</p>
+            <h4 class="font-bold text-stone-900 text-xs sm:text-sm mt-2 mb-1">Click Pay</h4>
+            <p class="text-[11px] sm:text-xs text-stone-500 leading-relaxed">Razorpay checkout opens securely.</p>
           </div>
-
           <div class="step-card">
             <span class="step-badge">03</span>
             <h4 class="font-bold text-stone-900 text-xs sm:text-sm mt-2 mb-1">Pay ₹1,000</h4>
-            <p class="text-[11px] sm:text-xs text-stone-500 leading-relaxed">Use UPI, Card or NetBanking seamlessly.</p>
+            <p class="text-[11px] sm:text-xs text-stone-500 leading-relaxed">UPI, Card or NetBanking — whatever works.</p>
           </div>
-
           <div class="step-card">
             <span class="step-badge">04</span>
-            <h4 class="font-bold text-stone-900 text-xs sm:text-sm mt-2 mb-1">Save receipt</h4>
-            <p class="text-[11px] sm:text-xs text-stone-500 leading-relaxed">Keep confirmation for batch verification.</p>
+            <h4 class="font-bold text-stone-900 text-xs sm:text-sm mt-2 mb-1">Auto-tracked</h4>
+            <p class="text-[11px] sm:text-xs text-stone-500 leading-relaxed">Your payment is verified & recorded automatically.</p>
           </div>
         </div>
       </section>
@@ -339,7 +373,6 @@
               <div class="progress-bar bg-gradient-to-r from-amber-500 to-amber-400" style="width: 40%"></div>
             </div>
           </div>
-
           <div>
             <div class="flex justify-between items-center mb-1.5">
               <span class="text-xs sm:text-sm font-semibold text-stone-800 flex items-center gap-2">
@@ -351,7 +384,6 @@
               <div class="progress-bar bg-gradient-to-r from-rose-600 to-rose-400" style="width: 30%"></div>
             </div>
           </div>
-
           <div>
             <div class="flex justify-between items-center mb-1.5">
               <span class="text-xs sm:text-sm font-semibold text-stone-800 flex items-center gap-2">
@@ -363,7 +395,6 @@
               <div class="progress-bar bg-gradient-to-r from-orange-500 to-orange-400" style="width: 15%"></div>
             </div>
           </div>
-
           <div>
             <div class="flex justify-between items-center mb-1.5">
               <span class="text-xs sm:text-sm font-semibold text-stone-800 flex items-center gap-2">
@@ -395,7 +426,6 @@
               <p>Freshers' welcome is a cherished collegiate tradition nationwide. Every year, the sophomore batch hosts and funds the welcoming ceremony for incoming freshers. Our seniors did it for us, and now it's our turn to deliver an even greater celebration.</p>
             </div>
           </div>
-
           <div>
             <button class="faq-btn" aria-expanded="false">
               <span>Is my payment safe via Razorpay?</span>
@@ -405,17 +435,24 @@
               <p>Yes, 100%. Payments are processed through Razorpay's RBI-regulated payment gateway with 256-bit bank-grade encryption. Instant digital receipts and UTR numbers are generated automatically.</p>
             </div>
           </div>
-
+          <div>
+            <button class="faq-btn" aria-expanded="false">
+              <span>Are my details tracked after payment?</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-stone-400 shrink-0 transition-transform"></i>
+            </button>
+            <div class="faq-panel">
+              <p>Yes — your name, phone number, and scholar number are logged to a public Google Sheet only after Razorpay confirms your payment. No entry is created for failed or incomplete payments. The sheet is viewable by everyone for full transparency.</p>
+            </div>
+          </div>
           <div>
             <button class="faq-btn" aria-expanded="false">
               <span>Can I pay for a batchmate or friend?</span>
               <i data-lucide="chevron-down" class="w-4 h-4 text-stone-400 shrink-0 transition-transform"></i>
             </button>
             <div class="faq-panel">
-              <p>Yes. When the Razorpay page opens, simply enter your friend's Full Name, Scholar Number, and Branch in the form fields, then complete the transaction and send them the receipt.</p>
+              <p>Yes. Simply fill in your friend's name, phone number, and scholar number in the form before clicking Pay. Their details will be recorded against the payment.</p>
             </div>
           </div>
-
           <div>
             <button class="faq-btn" aria-expanded="false">
               <span>What if amount was debited but page showed an error?</span>
@@ -428,7 +465,7 @@
         </div>
       </section>
 
-      <!-- Organising Committee & WhatsApp Contact (Rich Velvet Wine Card) -->
+      <!-- Organising Committee & WhatsApp Contact -->
       <section class="max-w-2xl mx-auto">
         <div class="contact-card">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-5 relative z-10">
@@ -439,7 +476,7 @@
             </div>
 
             <div class="flex items-center gap-2.5 shrink-0">
-              <a href="https://wa.me/?text=Hi%2C%20I%20have%20a%20query%20about%20the%20IIIT%20Bhopal%20Freshers%20contribution%3A%20https%3A%2F%2Frzp.io%2Frzp%2FZz811t3G" 
+              <a href="https://wa.me/?text=Hi%2C%20I%20have%20a%20query%20about%20the%20IIIT%20Bhopal%20Freshers%20contribution" 
                  target="_blank" 
                  rel="noopener noreferrer"
                  class="whatsapp-btn">
@@ -466,20 +503,18 @@
 
   </div>
 
-  <!-- Mobile Sticky Floating Dock (Thumb-friendly, iOS safe-area ready) -->
+  <!-- Mobile Sticky Floating Dock -->
   <div class="mobile-dock sm:hidden">
     <div class="flex items-center justify-between gap-3 px-4 max-w-lg mx-auto">
       <div class="shrink-0">
         <span class="text-[10px] uppercase font-bold tracking-wider text-stone-500 block leading-none">Contribution</span>
         <span class="font-serif font-bold text-xl text-stone-900 leading-tight">₹1,000</span>
       </div>
-      <a href="https://rzp.io/rzp/Zz811t3G" 
-         target="_blank" 
-         rel="noopener noreferrer"
+      <button id="mobile-pay-trigger"
          class="mobile-pay-btn">
         <span>Pay ₹1,000 Now</span>
         <i data-lucide="arrow-right" class="w-4 h-4"></i>
-      </a>
+      </button>
     </div>
   </div>
 
@@ -501,13 +536,9 @@
       </div>
 
       <div class="w-full space-y-2 pt-1">
-        <a href="https://rzp.io/rzp/Zz811t3G" target="_blank" rel="noopener noreferrer" class="btn-crimson w-full py-2.5 text-xs font-bold rounded-lg flex items-center justify-center gap-1.5">
-          <span>Open Direct Checkout</span>
-          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-        </a>
         <button onclick="copyToClipboard()" class="btn-subtle w-full py-2 text-xs font-semibold rounded-lg flex items-center justify-center gap-1.5">
           <i data-lucide="copy" class="w-3.5 h-3.5 text-rose-700"></i>
-          <span>Copy Razorpay Link</span>
+          <span>Copy Payment Link</span>
         </button>
       </div>
     </div>
