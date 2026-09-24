@@ -520,3 +520,19 @@ html {
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
+/* Make the Razorpay-generated button fill its container */
+.rzp-form-wrapper {
+  width: 100%;
+}
+
+.rzp-form-wrapper .razorpay-payment-button,
+.rzp-form-wrapper button,
+.rzp-form-wrapper input[type="submit"] {
+  width: 100% !important;
+  padding: 0.875rem 1.5rem !important;
+  border-radius: 0.75rem !important;
+  font-size: 0.9375rem !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+}

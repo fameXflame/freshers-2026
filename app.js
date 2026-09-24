@@ -1,11 +1,11 @@
 // ==========================================================================
 // IIIT Bhopal Freshers '26 — Payment + Google Sheets Integration
-// Flow: Fill form → Validate → Pay via Razorpay → Log to Google Sheets
+// Flow: Fill form → Validate → Reveal Razorpay button → Pay → Log to Sheet
 // ==========================================================================
 
 // ─── Configuration ──────────────────────────────
 const PAYMENT_URL = "https://rzp.io/rzp/Zz811t3G"; // QR / share fallback
-const GOOGLE_SHEET_URL = "YOUR_APPS_SCRIPT_URL_HERE"; // Replace with your Apps Script Web App URL
+const GOOGLE_SHEET_URL = "YOUR_APPS_SCRIPT_URL_HERE"; // Replace after deploying Apps Script
 
 // ─── State ──────────────────────────────────────
 let paymentCompleted = false;
@@ -57,19 +57,16 @@ function validateForm() {
   document.querySelectorAll(".form-input").forEach((el) => el.classList.remove("error"));
   document.querySelectorAll(".field-error").forEach((el) => el.classList.add("hidden"));
 
-  // Name
   if (!data.name || data.name.length < 2) {
     showFieldError("student-name", "name-error");
     valid = false;
   }
 
-  // Phone — must be exactly 10 digits
   if (!data.phone || !/^\d{10}$/.test(data.phone)) {
     showFieldError("student-phone", "phone-error");
     valid = false;
   }
 
-  // Scholar number
   if (!data.scholarNumber || data.scholarNumber.length < 2) {
     showFieldError("student-scholar", "scholar-error");
     valid = false;
@@ -95,7 +92,7 @@ document.addEventListener("input", (e) => {
 });
 
 // ==========================================================================
-// Payment Flow — Validate form, then trigger Razorpay button
+// Payment Flow — Validate → Reveal Razorpay → User clicks Razorpay directly
 // ==========================================================================
 function setupPaymentFlow() {
   const customBtn = document.getElementById("custom-pay-btn");
@@ -104,15 +101,15 @@ function setupPaymentFlow() {
   if (customBtn) {
     customBtn.addEventListener("click", handlePayClick);
   }
+
   if (mobileBtn) {
     mobileBtn.addEventListener("click", (e) => {
       e.preventDefault();
-      // Scroll to form first so user can see validation errors
+      // Scroll to form so user sees fields + validation
       const formSection = document.getElementById("student-form-section");
       if (formSection) {
         formSection.scrollIntoView({ behavior: "smooth", block: "center" });
       }
-      // Small delay to let scroll finish, then validate
       setTimeout(() => handlePayClick(), 400);
     });
   }
@@ -122,107 +119,75 @@ function handlePayClick() {
   if (paymentCompleted) return;
 
   if (!validateForm()) {
-    showToast("Please fill in all your details first", "Required fields are missing");
-    // Focus the first invalid field
+    showToast("Please fill in all details first", "Required fields are missing");
     const firstError = document.querySelector(".form-input.error");
     if (firstError) firstError.focus();
     return;
   }
 
-  // Store form data before triggering Razorpay (in case modal clears focus)
+  // Store form data in sessionStorage (persists across Razorpay modal)
   const formData = getFormData();
   sessionStorage.setItem("freshers_payment_data", JSON.stringify(formData));
 
-  // Find and click the hidden Razorpay button
-  triggerRazorpayButton();
-}
+  // Hide our button, reveal the real Razorpay button
+  const customBtn = document.getElementById("custom-pay-btn");
+  const rzpStep = document.getElementById("rzp-step");
 
-function triggerRazorpayButton() {
-  const rzpContainer = document.getElementById("rzp-button-container");
-  if (!rzpContainer) return;
-
-  // The Razorpay script creates a button inside the form
-  const rzpButton =
-    rzpContainer.querySelector(".razorpay-payment-button") ||
-    rzpContainer.querySelector("button") ||
-    rzpContainer.querySelector('input[type="submit"]');
-
-  if (rzpButton) {
-    // Temporarily make the container clickable
-    rzpContainer.style.position = "static";
-    rzpContainer.style.opacity = "1";
-    rzpContainer.style.pointerEvents = "auto";
-
-    rzpButton.click();
-
-    // Re-hide after a short delay (Razorpay modal is now open)
-    setTimeout(() => {
-      rzpContainer.style.position = "absolute";
-      rzpContainer.style.left = "-9999px";
-      rzpContainer.style.opacity = "0";
-      rzpContainer.style.pointerEvents = "none";
-    }, 500);
-  } else {
-    // Razorpay button hasn't loaded yet — retry after a moment
-    showToast("Loading payment gateway...", "Please wait a moment");
-    setTimeout(triggerRazorpayButton, 1500);
+  if (customBtn) customBtn.classList.add("hidden");
+  if (rzpStep) {
+    rzpStep.classList.remove("hidden");
+    // Re-render lucide icons for the check icon in the confirmation bar
+    if (typeof lucide !== "undefined") lucide.createIcons();
+    // Scroll to make the Razorpay button visible
+    rzpStep.scrollIntoView({ behavior: "smooth", block: "center" });
   }
+
+  showToast("Details saved ✓", "Now tap the Razorpay button to pay");
 }
 
 // ==========================================================================
 // Payment Success Detection via postMessage
-// Razorpay checkout communicates success back to the parent page
 // ==========================================================================
 function listenForPaymentSuccess() {
   window.addEventListener("message", (event) => {
-    // Razorpay sends various messages; look for payment success indicators
-    if (!event.data) return;
+    if (!event.data || paymentCompleted) return;
 
     let data = event.data;
 
-    // Sometimes data comes as a string
     if (typeof data === "string") {
-      try {
-        data = JSON.parse(data);
-      } catch {
-        return;
-      }
+      try { data = JSON.parse(data); } catch { return; }
     }
 
-    // Check for Razorpay payment success patterns
+    // Razorpay payment success patterns
     const isSuccess =
       (data.event === "payment.success") ||
       (data.razorpay_payment_id) ||
       (data.payload && data.payload.payment && data.payload.payment.entity) ||
       (data["payment.success"]);
 
-    if (isSuccess && !paymentCompleted) {
+    if (isSuccess) {
       paymentCompleted = true;
 
-      // Extract payment ID
       const paymentId =
         data.razorpay_payment_id ||
-        (data.payload && data.payload.payment && data.payload.payment.entity && data.payload.payment.entity.id) ||
-        (data.response && data.response.razorpay_payment_id) ||
+        (data.payload?.payment?.entity?.id) ||
+        (data.response?.razorpay_payment_id) ||
         "verified";
 
       handlePaymentSuccess(paymentId);
     }
   });
 
-  // Also watch for Razorpay modal close + form changes as a backup
-  // Some Razorpay integrations modify the form after success
+  // Backup: watch for DOM changes in the Razorpay form (success text injected)
   const rzpForm = document.getElementById("rzp-form");
   if (rzpForm) {
     const observer = new MutationObserver((mutations) => {
+      if (paymentCompleted) return;
       for (const mutation of mutations) {
         for (const node of mutation.addedNodes) {
           if (node.nodeType === 1) {
-            const text = node.textContent || "";
-            if (
-              (text.includes("success") || text.includes("paid") || text.includes("completed")) &&
-              !paymentCompleted
-            ) {
+            const text = (node.textContent || "").toLowerCase();
+            if (text.includes("success") || text.includes("paid") || text.includes("completed")) {
               paymentCompleted = true;
               handlePaymentSuccess("verified-via-dom");
             }
@@ -238,18 +203,15 @@ function listenForPaymentSuccess() {
 // Handle Successful Payment — Log to Google Sheets
 // ==========================================================================
 function handlePaymentSuccess(paymentId) {
-  // Retrieve stored form data
   let formData;
   try {
     formData = JSON.parse(sessionStorage.getItem("freshers_payment_data") || "{}");
   } catch {
-    formData = getFormData(); // fallback to current form values
+    formData = getFormData();
   }
 
-  // Show success UI
   showSuccessUI(paymentId);
 
-  // Log to Google Sheets
   logToGoogleSheets({
     name: formData.name || "",
     phone: formData.phone || "",
@@ -258,25 +220,22 @@ function handlePaymentSuccess(paymentId) {
     amount: "1000",
   });
 
-  // Show toast
   showToast("Payment successful!", "Your details have been recorded ✓");
-
-  // Clean up
   sessionStorage.removeItem("freshers_payment_data");
 }
 
 function showSuccessUI(paymentId) {
-  // Hide form and pay button
   const formSection = document.getElementById("student-form-section");
   const customBtn = document.getElementById("custom-pay-btn");
+  const rzpStep = document.getElementById("rzp-step");
   const successDiv = document.getElementById("payment-success");
   const paymentIdDisplay = document.getElementById("payment-id-display");
 
   if (formSection) formSection.style.display = "none";
   if (customBtn) customBtn.style.display = "none";
+  if (rzpStep) rzpStep.style.display = "none";
   if (successDiv) {
     successDiv.classList.remove("hidden");
-    // Re-render lucide icons for the success section
     if (typeof lucide !== "undefined") lucide.createIcons();
   }
   if (paymentIdDisplay && paymentId) {
@@ -286,22 +245,17 @@ function showSuccessUI(paymentId) {
 
 function logToGoogleSheets(data) {
   if (!GOOGLE_SHEET_URL || GOOGLE_SHEET_URL === "YOUR_APPS_SCRIPT_URL_HERE") {
-    console.warn("Google Sheet URL not configured. Skipping sheet logging.");
-    console.log("Payment data to log:", data);
+    console.warn("Google Sheet URL not configured. Payment data:", data);
     return;
   }
 
-  // Use no-cors mode — we can't read the response but the data IS saved
   fetch(GOOGLE_SHEET_URL, {
     method: "POST",
     mode: "no-cors",
-    headers: {
-      "Content-Type": "text/plain;charset=utf-8",
-    },
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
     body: JSON.stringify(data),
   }).catch((err) => {
     console.error("Sheet logging failed:", err);
-    // Silently fail — payment was still successful
   });
 }
 
@@ -312,7 +266,7 @@ function shareOrCopy() {
   if (navigator.share) {
     navigator.share({
       title: "IIIT Bhopal Freshers '26 Contribution",
-      text: "Support IIIT Bhopal Freshers 2026! 2nd-year batch contribution portal (₹1,000):",
+      text: "Contribute ₹1,000 for IIIT Bhopal Freshers 2026:",
       url: PAYMENT_URL,
     }).catch(() => {});
   } else {
@@ -323,34 +277,32 @@ function shareOrCopy() {
 function copyToClipboard() {
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(PAYMENT_URL).then(() => {
-      showToast("Payment link copied!", "Share with batchmates on WhatsApp");
-    }).catch(() => {
-      fallbackCopy();
-    });
+      showToast("Payment link copied!", "Share with batchmates");
+    }).catch(() => fallbackCopy());
   } else {
     fallbackCopy();
   }
 }
 
 function fallbackCopy() {
-  const textarea = document.createElement("textarea");
-  textarea.value = PAYMENT_URL;
-  textarea.style.position = "fixed";
-  textarea.style.opacity = "0";
-  document.body.appendChild(textarea);
-  textarea.focus();
-  textarea.select();
+  const ta = document.createElement("textarea");
+  ta.value = PAYMENT_URL;
+  ta.style.position = "fixed";
+  ta.style.opacity = "0";
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
   try {
     document.execCommand("copy");
-    showToast("Payment link copied!", "Share with batchmates on WhatsApp");
+    showToast("Payment link copied!", "Share with batchmates");
   } catch {
     showToast("Link: " + PAYMENT_URL, "");
   }
-  document.body.removeChild(textarea);
+  document.body.removeChild(ta);
 }
 
 // ==========================================================================
-// Toast System
+// Toast
 // ==========================================================================
 let toastTimer;
 function showToast(message, subtitle) {
@@ -363,11 +315,8 @@ function showToast(message, subtitle) {
   if (subEl) subEl.textContent = subtitle || "";
 
   toast.classList.add("show");
-
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => {
-    toast.classList.remove("show");
-  }, 3500);
+  toastTimer = setTimeout(() => toast.classList.remove("show"), 3500);
 }
 
 // ==========================================================================
@@ -390,7 +339,6 @@ function closeQRModal() {
 window.addEventListener("click", (e) => {
   if (e.target.id === "qr-modal") closeQRModal();
 });
-
 window.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeQRModal();
 });
@@ -408,9 +356,7 @@ function setupFAQs() {
       buttons.forEach((otherBtn) => {
         if (otherBtn !== btn) {
           otherBtn.setAttribute("aria-expanded", "false");
-          if (otherBtn.nextElementSibling) {
-            otherBtn.nextElementSibling.classList.remove("open");
-          }
+          otherBtn.nextElementSibling?.classList.remove("open");
         }
       });
 
