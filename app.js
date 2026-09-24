@@ -5,7 +5,7 @@
 
 // ─── Configuration ──────────────────────────────
 const PAYMENT_URL = "https://rzp.io/rzp/Zz811t3G"; // QR / share fallback
-const GOOGLE_SHEET_URL = "YOUR_APPS_SCRIPT_URL_HERE"; // Replace after deploying Apps Script
+const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbwdR9zDGX89AXfqXo7oLxIBeMPWce_P4wL08boloCbqeuml9yZYtIFuojjhnWVD_Amx/exec";
 
 // ─── State ──────────────────────────────────────
 let paymentCompleted = false;
