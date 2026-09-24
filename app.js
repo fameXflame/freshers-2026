@@ -140,20 +140,25 @@ function handlePayClick() {
   const formData = getFormData();
   sessionStorage.setItem("freshers_payment_data", JSON.stringify(formData));
 
-  // Hide our button, reveal the real Razorpay button
+  // Hide our button, secondary actions, and gateway info so only the burning Razorpay button stands out
   const customBtn = document.getElementById("custom-pay-btn");
   const rzpStep = document.getElementById("rzp-step");
+  const secActions = document.getElementById("secondary-actions");
+  const gwInfo = document.getElementById("payment-gateways-info");
 
   if (customBtn) customBtn.classList.add("hidden");
+  if (secActions) secActions.classList.add("hidden");
+  if (gwInfo) gwInfo.classList.add("hidden");
+
   if (rzpStep) {
     rzpStep.classList.remove("hidden");
     // Re-render lucide icons for the check icon in the confirmation bar
     if (typeof lucide !== "undefined") lucide.createIcons();
-    // Scroll to make the Razorpay button visible
+    // Scroll smoothly to center the glowing button
     rzpStep.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
-  showToast("Details saved ✓", "Now tap the Razorpay button to pay");
+  showToast("Details saved ✓", "Tap the glowing button to pay ₹1,000");
 }
 
 // ==========================================================================

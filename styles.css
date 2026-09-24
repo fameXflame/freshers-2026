@@ -521,18 +521,146 @@ html {
   to { transform: rotate(360deg); }
 }
 
-/* Make the Razorpay-generated button fill its container */
-.rzp-form-wrapper {
-  width: 100%;
+/* ==========================================================================
+   Fire Spotlight & Burning Button Animation for Razorpay
+   ========================================================================== */
+.fire-spotlight-box {
+  position: relative;
+  background: linear-gradient(145deg, #fff7ed 0%, #fef2f2 50%, #fffbeb 100%);
+  border: 2px solid #f97316;
+  border-radius: 1.25rem;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  box-shadow: 
+    0 0 0 1px #fdba74,
+    0 0 25px rgba(249, 115, 22, 0.35),
+    0 10px 30px rgba(225, 29, 72, 0.15);
+  animation: fire-pulse 2.2s infinite ease-in-out;
 }
 
+@keyframes fire-pulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 0 1px #fdba74,
+      0 0 20px rgba(249, 115, 22, 0.35),
+      0 8px 25px rgba(225, 29, 72, 0.15);
+    border-color: #f97316;
+  }
+  50% {
+    box-shadow: 
+      0 0 0 3px #fb923c,
+      0 0 38px rgba(234, 88, 12, 0.65),
+      0 12px 40px rgba(225, 29, 72, 0.28);
+    border-color: #ea580c;
+  }
+}
+
+.fire-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 800;
+  font-size: 0.9375rem;
+  letter-spacing: 0.04em;
+  color: #9a3412;
+}
+
+.fire-flame {
+  font-size: 1.25rem;
+  display: inline-block;
+  animation: flame-wiggle 1.2s infinite ease-in-out alternate;
+}
+
+@keyframes flame-wiggle {
+  0% { transform: translateY(0) scale(1) rotate(-5deg); }
+  100% { transform: translateY(-4px) scale(1.15) rotate(5deg); }
+}
+
+.fire-subtext {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #c2410c;
+  margin-top: 0.15rem;
+  margin-bottom: 0.875rem;
+}
+
+.fire-button-housing {
+  position: relative;
+  border-radius: 1rem;
+  padding: 4px;
+  background: linear-gradient(90deg, #ea580c, #e11d48, #f59e0b, #ea580c);
+  background-size: 300% 300%;
+  animation: fire-border 2.5s ease infinite;
+  box-shadow: 0 4px 20px rgba(234, 88, 12, 0.4);
+}
+
+@keyframes fire-border {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.fire-footer-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #78716c;
+  margin-top: 0.75rem;
+}
+
+/* Make Razorpay Button bold, high-contrast, and impossible to mistake */
+.rzp-form-wrapper {
+  width: 100%;
+  display: block;
+}
+
+.rzp-form-wrapper .PaymentButton,
 .rzp-form-wrapper .razorpay-payment-button,
 .rzp-form-wrapper button,
+.rzp-form-wrapper a,
 .rzp-form-wrapper input[type="submit"] {
   width: 100% !important;
+  min-height: 54px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   padding: 0.875rem 1.5rem !important;
+  background: linear-gradient(135deg, #c2410c 0%, #dc2626 50%, #9f1239 100%) !important;
+  color: #ffffff !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.4) !important;
   border-radius: 0.75rem !important;
-  font-size: 0.9375rem !important;
-  font-weight: 700 !important;
+  font-size: 1.05rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.03em !important;
+  text-decoration: none !important;
   cursor: pointer !important;
+  box-shadow: 0 4px 18px rgba(185, 28, 28, 0.35) !important;
+  transition: all 0.15s ease !important;
 }
+
+.rzp-form-wrapper .PaymentButton:hover,
+.rzp-form-wrapper .razorpay-payment-button:hover,
+.rzp-form-wrapper button:hover {
+  filter: brightness(1.12) !important;
+  transform: scale(1.015) !important;
+  box-shadow: 0 6px 24px rgba(185, 28, 28, 0.5) !important;
+}
+
+.rzp-form-wrapper .PaymentButton:active,
+.rzp-form-wrapper .razorpay-payment-button:active,
+.rzp-form-wrapper button:active {
+  transform: scale(0.98) !important;
+}
+
+.rzp-form-wrapper .PaymentButton-text,
+.rzp-form-wrapper .PaymentButton-contents,
+.rzp-form-wrapper span {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  font-size: 1.05rem !important;
+}
+
