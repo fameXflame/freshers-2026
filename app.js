@@ -4,7 +4,6 @@
 // ==========================================================================
 
 // ─── Configuration ──────────────────────────────
-const PAYMENT_URL = "https://rzp.io/rzp/Zz811t3G"; // QR / share fallback
 const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbwdR9zDGX89AXfqXo7oLxIBeMPWce_P4wL08boloCbqeuml9yZYtIFuojjhnWVD_Amx/exec";
 
 // ─── State ──────────────────────────────────────
@@ -15,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (typeof lucide !== "undefined" && lucide.createIcons) {
     lucide.createIcons();
   }
-  initQRCode();
   setupFAQs();
   setupPaymentFlow();
   listenForPaymentSuccess();
@@ -30,23 +28,6 @@ function checkUrlPaymentParams() {
     paymentCompleted = true;
     handlePaymentSuccess(paymentId || "verified-via-redirect");
   }
-}
-
-// ==========================================================================
-// QR Code
-// ==========================================================================
-function initQRCode() {
-  const el = document.getElementById("qrcode");
-  if (!el || typeof QRCode === "undefined") return;
-  el.innerHTML = "";
-  new QRCode(el, {
-    text: PAYMENT_URL,
-    width: 176,
-    height: 176,
-    colorDark: "#4c0519",
-    colorLight: "#ffffff",
-    correctLevel: QRCode.CorrectLevel.H,
-  });
 }
 
 // ==========================================================================
@@ -140,14 +121,12 @@ function handlePayClick() {
   const formData = getFormData();
   sessionStorage.setItem("freshers_payment_data", JSON.stringify(formData));
 
-  // Hide our button, secondary actions, and gateway info so only the burning Razorpay button stands out
+  // Hide our button and gateway note so only the burning Razorpay button stands out
   const customBtn = document.getElementById("custom-pay-btn");
   const rzpStep = document.getElementById("rzp-step");
-  const secActions = document.getElementById("secondary-actions");
   const gwInfo = document.getElementById("payment-gateways-info");
 
   if (customBtn) customBtn.classList.add("hidden");
-  if (secActions) secActions.classList.add("hidden");
   if (gwInfo) gwInfo.classList.add("hidden");
 
   if (rzpStep) {
@@ -238,7 +217,7 @@ function handlePaymentSuccess(paymentId) {
     amount: "1000",
   });
 
-  showToast("Payment successful!", "Your details have been recorded ✓");
+  showToast("Payment Successful!", "Your Senior Host Pass is active ✓");
   sessionStorage.removeItem("freshers_payment_data");
 }
 
@@ -278,33 +257,35 @@ function logToGoogleSheets(data) {
 }
 
 // ==========================================================================
-// Share / Copy
+// Share / Copy Portal URL
 // ==========================================================================
 function shareOrCopy() {
+  const portalUrl = window.location.href.split("?")[0];
   if (navigator.share) {
     navigator.share({
-      title: "IIIT Bhopal Freshers '26 Contribution",
-      text: "Contribute ₹1,000 for IIIT Bhopal Freshers 2026:",
-      url: PAYMENT_URL,
+      title: "IIIT Bhopal Freshers '26 Senior Host Pass",
+      text: "Pay ₹1,000 for the IIIT Bhopal Freshers 2026 Senior Host Pass:",
+      url: portalUrl,
     }).catch(() => {});
   } else {
-    copyToClipboard();
+    copyToClipboard(portalUrl);
   }
 }
 
-function copyToClipboard() {
+function copyToClipboard(url) {
+  const portalUrl = url || window.location.href.split("?")[0];
   if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(PAYMENT_URL).then(() => {
-      showToast("Payment link copied!", "Share with batchmates");
-    }).catch(() => fallbackCopy());
+    navigator.clipboard.writeText(portalUrl).then(() => {
+      showToast("Portal link copied!", "Share with batchmates");
+    }).catch(() => fallbackCopy(portalUrl));
   } else {
-    fallbackCopy();
+    fallbackCopy(portalUrl);
   }
 }
 
-function fallbackCopy() {
+function fallbackCopy(url) {
   const ta = document.createElement("textarea");
-  ta.value = PAYMENT_URL;
+  ta.value = url;
   ta.style.position = "fixed";
   ta.style.opacity = "0";
   document.body.appendChild(ta);
@@ -312,9 +293,9 @@ function fallbackCopy() {
   ta.select();
   try {
     document.execCommand("copy");
-    showToast("Payment link copied!", "Share with batchmates");
+    showToast("Portal link copied!", "Share with batchmates");
   } catch {
-    showToast("Link: " + PAYMENT_URL, "");
+    showToast("Link: " + url, "");
   }
   document.body.removeChild(ta);
 }
@@ -334,32 +315,10 @@ function showToast(message, subtitle) {
 
   toast.classList.add("show");
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.remove("show"), 3500);
+  toastTimer = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3500);
 }
-
-// ==========================================================================
-// QR Modal
-// ==========================================================================
-function openQRModal() {
-  const modal = document.getElementById("qr-modal");
-  if (!modal) return;
-  modal.classList.add("active");
-  document.body.style.overflow = "hidden";
-}
-
-function closeQRModal() {
-  const modal = document.getElementById("qr-modal");
-  if (!modal) return;
-  modal.classList.remove("active");
-  document.body.style.overflow = "";
-}
-
-window.addEventListener("click", (e) => {
-  if (e.target.id === "qr-modal") closeQRModal();
-});
-window.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closeQRModal();
-});
 
 // ==========================================================================
 // FAQ Accordion

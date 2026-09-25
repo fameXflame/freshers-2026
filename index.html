@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#F4ECE1">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <title>Freshers '26 • IIIT Bhopal | 2nd Year Fund Drive</title>
-  <meta name="description" content="Official fund collection portal for IIIT Bhopal Freshers 2026. Welcoming incoming freshers with grand celebrations.">
+  <title>Freshers '26 • IIIT Bhopal | 2nd Year Senior Pass Payment</title>
+  <meta name="description" content="Official payment portal for IIIT Bhopal Freshers 2026 Senior Host Pass. B.Tech Class of 2027 batch payment.">
 
   <!-- Google Fonts: Playfair Display (Prestigious Serif) + Outfit (Modern Luxury Sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,9 +67,8 @@
     }
   </script>
 
-  <!-- Lucide Icons & QRCode -->
+  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -89,7 +88,7 @@
       <i data-lucide="check" class="w-4 h-4 text-emerald-700 stroke-[2.5]"></i>
     </div>
     <div>
-      <p id="toast-message" class="text-xs sm:text-sm font-semibold text-stone-900">Payment link copied!</p>
+      <p id="toast-message" class="text-xs sm:text-sm font-semibold text-stone-900">Portal link copied!</p>
       <p id="toast-sub" class="text-[11px] text-stone-500">Share with batchmates on WhatsApp</p>
     </div>
   </div>
@@ -109,14 +108,14 @@
               GALA '26
             </span>
           </div>
-          <p class="text-[11px] sm:text-xs text-stone-500 font-medium">B.Tech 2nd Year Batch Contribution</p>
+          <p class="text-[11px] sm:text-xs text-stone-500 font-medium">B.Tech 2nd Year Senior Pass Payment</p>
         </div>
       </div>
 
       <div class="flex items-center gap-2.5">
         <div class="hidden xs:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold">
           <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-          <span>Drive Live</span>
+          <span>Payment Live</span>
         </div>
         <button onclick="shareOrCopy()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-parchment-200/70 hover:bg-parchment-200 text-stone-700 hover:text-stone-900 text-xs font-semibold transition border border-stone-300/60 active:scale-95">
           <i data-lucide="share-2" class="w-3.5 h-3.5 text-crimson-700"></i>
@@ -134,7 +133,7 @@
           <span class="w-1.5 h-1.5 rounded-full bg-crimson-700"></span>
           <span>Welcoming Freshers '28</span>
           <span class="text-stone-400">•</span>
-          <span class="text-amber-800 font-medium">Class of 2027 Initiative</span>
+          <span class="text-amber-800 font-medium">B.Tech 2nd-Year Batch Payment</span>
         </div>
 
         <div class="space-y-3">
@@ -145,7 +144,7 @@
             </span>
           </h2>
           <p class="text-stone-600 text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl mx-auto">
-            Honoring college tradition. As 2nd-year seniors, our batch comes together to host the grand Freshers' Gala for our juniors at IIIT Bhopal.
+            Honoring IIIT Bhopal tradition. As 2nd-year seniors, every student is required to secure their Senior Host Pass to host the grand Freshers' Gala for our juniors.
           </p>
         </div>
 
@@ -160,7 +159,7 @@
             <span class="w-2 h-2 rounded-full bg-emerald-600"></span>ECE
           </span>
           <span class="text-stone-400 hidden sm:inline">•</span>
-          <span class="text-stone-500 hidden sm:inline font-semibold">₹1,000 per student</span>
+          <span class="text-stone-700 hidden sm:inline font-bold">₹1,000 per student (Mandatory)</span>
         </div>
       </section>
 
@@ -182,20 +181,20 @@
                 <p class="text-xs text-stone-500 font-medium">Merchant: Aaditya Solankii (Committee)</p>
               </div>
               <div class="text-right shrink-0 bg-parchment-100/80 px-3.5 py-2 rounded-xl border border-stone-200">
-                <span class="text-[10px] uppercase font-bold tracking-wider text-stone-500 block">Amount</span>
+                <span class="text-[10px] uppercase font-bold tracking-wider text-stone-500 block">Fee</span>
                 <div class="flex items-baseline justify-end">
                   <span class="font-serif font-bold text-3xl sm:text-4xl text-stone-900 tracking-tight">₹1,000</span>
                 </div>
                 <span class="text-[10px] font-semibold text-emerald-700 flex items-center justify-end gap-1 mt-0.5">
                   <i data-lucide="shield-check" class="w-3 h-3"></i>
-                  All Inclusive
+                  Official Pass
                 </span>
               </div>
             </div>
 
             <!-- Features / Event Inclusions -->
             <div class="space-y-2.5">
-              <span class="text-xs font-semibold text-stone-500 uppercase tracking-wider block">Everything Covered In This Pass:</span>
+              <span class="text-xs font-semibold text-stone-500 uppercase tracking-wider block">Pass Access Includes:</span>
               <div class="grid grid-cols-2 gap-2.5 text-xs">
                 <div class="feature-tile">
                   <div class="feature-icon bg-rose-100 text-rose-700 border border-rose-200">
@@ -238,9 +237,9 @@
 
             <!-- Student Details Form -->
             <div class="space-y-3" id="student-form-section">
-              <span class="text-xs font-semibold text-stone-500 uppercase tracking-wider block flex items-center gap-1.5">
+              <span class="text-xs font-semibold text-stone-700 uppercase tracking-wider block flex items-center gap-1.5">
                 <i data-lucide="user" class="w-3.5 h-3.5 text-crimson-800"></i>
-                Your Details (Required)
+                Student Details (Required for Pass)
               </span>
 
               <div class="space-y-2.5">
@@ -263,18 +262,18 @@
 
               <p class="text-[11px] text-stone-400 flex items-center gap-1 pt-0.5">
                 <i data-lucide="lock" class="w-3 h-3"></i>
-                Details are recorded only after successful payment verification
+                Payment is tracked and verified automatically via Razorpay
               </p>
             </div>
 
             <!-- Payment Section -->
             <div class="space-y-3 pt-1" id="payment-section">
               
-              <!-- Step 1: Our button validates form -->
+              <!-- Step 1: Form Validation Trigger Button -->
               <button type="button" id="custom-pay-btn"
                 class="btn-crimson w-full py-3.5 sm:py-4 px-6 rounded-xl font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 shadow-lg shadow-crimson-900/20 active:scale-[0.98] transition">
                 <i data-lucide="credit-card" class="w-4 h-4 sm:w-5 sm:h-5 text-amber-200"></i>
-                <span>Pay ₹1,000 via Razorpay</span>
+                <span>Pay ₹1,000 Now</span>
                 <i data-lucide="arrow-right" class="w-4 h-4 sm:w-5 sm:h-5"></i>
               </button>
 
@@ -282,17 +281,17 @@
               <div id="rzp-step" class="hidden space-y-3">
                 <div class="flex items-center justify-center gap-1.5 text-xs font-semibold text-emerald-800 bg-emerald-100/90 border border-emerald-300 rounded-xl py-2 px-3 shadow-sm">
                   <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
-                  <span>Details saved! Click the burning button below:</span>
+                  <span>Details saved! Complete payment below:</span>
                 </div>
 
                 <!-- Glowing Fire Container -->
                 <div class="fire-spotlight-box">
                   <div class="fire-header">
                     <span class="fire-flame">🔥</span>
-                    <span class="fire-heading">TAP TO PAY ₹1,000</span>
+                    <span class="fire-heading">PAY ₹1,000 NOW</span>
                     <span class="fire-flame">🔥</span>
                   </div>
-                  <p class="fire-subtext">Click the official Razorpay checkout button below 👇</p>
+                  <p class="fire-subtext">Tap the button below to open secure Razorpay checkout 👇</p>
                   
                   <div class="fire-button-housing">
                     <form id="rzp-form" class="rzp-form-wrapper">
@@ -302,7 +301,7 @@
 
                   <div class="fire-footer-note">
                     <i data-lucide="shield-check" class="w-3.5 h-3.5 text-amber-600"></i>
-                    <span>Opens official Razorpay gateway (UPI, PhonePe, Cards)</span>
+                    <span>Official Razorpay Gateway (UPI, GPay, PhonePe, Cards, NetBanking)</span>
                   </div>
                 </div>
               </div>
@@ -313,26 +312,14 @@
                   <i data-lucide="check-circle-2" class="w-7 h-7 text-emerald-700"></i>
                 </div>
                 <h4 class="font-serif font-bold text-xl text-stone-900">Payment Successful!</h4>
-                <p class="text-sm text-stone-600">Your details have been recorded. Thank you for your contribution!</p>
+                <p class="text-sm text-stone-600">Your payment is verified and recorded. Your Senior Host Pass is active!</p>
                 <p class="text-xs text-stone-400" id="payment-id-display"></p>
-              </div>
-
-              <!-- Secondary Actions: QR & Share -->
-              <div class="grid grid-cols-2 gap-2.5" id="secondary-actions">
-                <button onclick="openQRModal()" class="btn-subtle text-xs sm:text-sm py-2.5 px-3">
-                  <i data-lucide="qr-code" class="w-4 h-4 text-amber-700"></i>
-                  <span>Scan UPI QR</span>
-                </button>
-                <button onclick="shareOrCopy()" class="btn-subtle text-xs sm:text-sm py-2.5 px-3">
-                  <i data-lucide="copy" class="w-4 h-4 text-rose-700"></i>
-                  <span>Copy Link</span>
-                </button>
               </div>
 
               <!-- Payment Gateways Non-clickable Descriptive Info -->
               <div class="text-center pt-1" id="payment-gateways-info">
                 <p class="text-[11px] text-stone-500 font-medium">
-                  Accepted inside checkout: <span class="text-stone-700 font-semibold">Google Pay • PhonePe • Paytm • UPI • Cards • NetBanking</span>
+                  Accepted payment modes: <span class="text-stone-700 font-semibold">Google Pay • PhonePe • Paytm • UPI • Cards • NetBanking</span>
                 </p>
               </div>
             </div>
@@ -341,33 +328,33 @@
         </div>
       </section>
 
-      <!-- 4-Step Contribution Process -->
+      <!-- 4-Step Payment Process -->
       <section class="space-y-6 max-w-3xl mx-auto">
         <div class="text-center space-y-1">
-          <p class="text-xs font-bold text-crimson-800 uppercase tracking-widest">Simple & Verified</p>
-          <h3 class="font-serif font-bold text-2xl sm:text-3xl text-stone-900">How to contribute</h3>
+          <p class="text-xs font-bold text-crimson-800 uppercase tracking-widest">Fast & Automated</p>
+          <h3 class="font-serif font-bold text-2xl sm:text-3xl text-stone-900">How to Pay</h3>
         </div>
 
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <div class="step-card">
             <span class="step-badge">01</span>
             <h4 class="font-bold text-stone-900 text-xs sm:text-sm mt-2 mb-1">Fill details</h4>
-            <p class="text-[11px] sm:text-xs text-stone-500 leading-relaxed">Enter your name, phone & scholar number.</p>
+            <p class="text-[11px] sm:text-xs text-stone-500 leading-relaxed">Enter your Name, Phone & Scholar Number.</p>
           </div>
           <div class="step-card">
             <span class="step-badge">02</span>
             <h4 class="font-bold text-stone-900 text-xs sm:text-sm mt-2 mb-1">Click Pay</h4>
-            <p class="text-[11px] sm:text-xs text-stone-500 leading-relaxed">Razorpay checkout opens securely.</p>
+            <p class="text-[11px] sm:text-xs text-stone-500 leading-relaxed">Razorpay secure gateway opens instantly.</p>
           </div>
           <div class="step-card">
             <span class="step-badge">03</span>
             <h4 class="font-bold text-stone-900 text-xs sm:text-sm mt-2 mb-1">Pay ₹1,000</h4>
-            <p class="text-[11px] sm:text-xs text-stone-500 leading-relaxed">UPI, Card or NetBanking — whatever works.</p>
+            <p class="text-[11px] sm:text-xs text-stone-500 leading-relaxed">Complete via UPI, Cards, or NetBanking.</p>
           </div>
           <div class="step-card">
             <span class="step-badge">04</span>
-            <h4 class="font-bold text-stone-900 text-xs sm:text-sm mt-2 mb-1">Auto-tracked</h4>
-            <p class="text-[11px] sm:text-xs text-stone-500 leading-relaxed">Your payment is verified & recorded automatically.</p>
+            <h4 class="font-bold text-stone-900 text-xs sm:text-sm mt-2 mb-1">Verified ✓</h4>
+            <p class="text-[11px] sm:text-xs text-stone-500 leading-relaxed">Instantly recorded in the batch payment registry.</p>
           </div>
         </div>
       </section>
@@ -376,8 +363,8 @@
       <section class="space-y-6 max-w-2xl mx-auto">
         <div class="text-center space-y-1">
           <p class="text-xs font-bold text-crimson-800 uppercase tracking-widest">100% Transparency</p>
-          <h3 class="font-serif font-bold text-2xl sm:text-3xl text-stone-900">Where the funds go</h3>
-          <p class="text-xs text-stone-500">Every rupee collected is allocated directly toward event production</p>
+          <h3 class="font-serif font-bold text-2xl sm:text-3xl text-stone-900">Budget Breakdown</h3>
+          <p class="text-xs text-stone-500">Every rupee collected is allocated directly toward grand event production</p>
         </div>
 
         <div class="bg-white rounded-2xl p-5 sm:p-7 border border-stone-200/90 shadow-sm space-y-5">
@@ -431,18 +418,18 @@
       <!-- Frequently Asked Questions -->
       <section class="space-y-6 max-w-2xl mx-auto">
         <div class="text-center space-y-1">
-          <p class="text-xs font-bold text-crimson-800 uppercase tracking-widest">Got Questions?</p>
+          <p class="text-xs font-bold text-crimson-800 uppercase tracking-widest">Important Info</p>
           <h3 class="font-serif font-bold text-2xl sm:text-3xl text-stone-900">Frequently Asked Questions</h3>
         </div>
 
         <div class="bg-white rounded-2xl border border-stone-200/90 shadow-sm divide-y divide-stone-200" id="faq-container">
           <div>
             <button class="faq-btn" aria-expanded="false">
-              <span>Why do 2nd-year students contribute?</span>
+              <span>Why is this payment required for all 2nd-year students?</span>
               <i data-lucide="chevron-down" class="w-4 h-4 text-stone-400 shrink-0 transition-transform"></i>
             </button>
             <div class="faq-panel">
-              <p>Freshers' welcome is a cherished collegiate tradition nationwide. Every year, the sophomore batch hosts and funds the welcoming ceremony for incoming freshers. Our seniors did it for us, and now it's our turn to deliver an even greater celebration.</p>
+              <p>Hosting the Freshers' Gala is an established college tradition at IIIT Bhopal. Just as our seniors hosted and funded our Freshers when we joined, the entire sophomore batch comes together to host and fund the welcoming gala for our incoming freshers. Every student's payment directly funds the catering, professional sound/DJ, venue, and awards.</p>
             </div>
           </div>
           <div>
@@ -456,11 +443,11 @@
           </div>
           <div>
             <button class="faq-btn" aria-expanded="false">
-              <span>Are my details tracked after payment?</span>
+              <span>How is my payment tracked?</span>
               <i data-lucide="chevron-down" class="w-4 h-4 text-stone-400 shrink-0 transition-transform"></i>
             </button>
             <div class="faq-panel">
-              <p>Yes — your name, phone number, and scholar number are logged to a public Google Sheet only after Razorpay confirms your payment. No entry is created for failed or incomplete payments. The sheet is viewable by everyone for full transparency.</p>
+              <p>Your name, phone number, and scholar number are logged to the batch payment registry immediately after Razorpay confirms payment success. No manual receipt submission is needed.</p>
             </div>
           </div>
           <div>
@@ -469,7 +456,7 @@
               <i data-lucide="chevron-down" class="w-4 h-4 text-stone-400 shrink-0 transition-transform"></i>
             </button>
             <div class="faq-panel">
-              <p>Yes. Simply fill in your friend's name, phone number, and scholar number in the form before clicking Pay. Their details will be recorded against the payment.</p>
+              <p>Yes. Simply enter your friend's Full Name, Phone Number, and Scholar Number in the form before clicking Pay. Their pass will be activated under their details.</p>
             </div>
           </div>
           <div>
@@ -495,7 +482,7 @@
             </div>
 
             <div class="flex items-center gap-2.5 shrink-0">
-              <a href="https://wa.me/919929044116?text=Hi%20Aaditya%2C%20I%20have%20a%20query%20about%20the%20IIIT%20Bhopal%20Freshers%20contribution" 
+              <a href="https://wa.me/919929044116?text=Hi%20Aaditya%2C%20I%20have%20a%20query%20about%20the%20IIIT%20Bhopal%20Freshers%20payment" 
                  target="_blank" 
                  rel="noopener noreferrer"
                  class="whatsapp-btn">
@@ -517,7 +504,7 @@
     <!-- Footer -->
     <footer class="mt-14 py-6 border-t border-stone-200 text-center text-xs text-stone-500 space-y-1">
       <p class="font-medium text-stone-700">© 2026 IIIT Bhopal Freshers Organising Committee • Lead: Aaditya Solankii</p>
-      <p class="text-[11px] text-stone-400">Official collection page for B.Tech Class of 2027 • Payments secured by Razorpay</p>
+      <p class="text-[11px] text-stone-400">Official batch payment portal for B.Tech Class of 2027 • Payments secured by Razorpay</p>
     </footer>
 
   </div>
@@ -526,7 +513,7 @@
   <div class="mobile-dock sm:hidden">
     <div class="flex items-center justify-between gap-3 px-4 max-w-lg mx-auto">
       <div class="shrink-0">
-        <span class="text-[10px] uppercase font-bold tracking-wider text-stone-500 block leading-none">Contribution</span>
+        <span class="text-[10px] uppercase font-bold tracking-wider text-stone-500 block leading-none">Senior Pass</span>
         <span class="font-serif font-bold text-xl text-stone-900 leading-tight">₹1,000</span>
       </div>
       <button id="mobile-pay-trigger"
@@ -534,32 +521,6 @@
         <span>Pay ₹1,000 Now</span>
         <i data-lucide="arrow-right" class="w-4 h-4"></i>
       </button>
-    </div>
-  </div>
-
-  <!-- UPI QR Code Modal Dialog -->
-  <div id="qr-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="qr-modal-title">
-    <div class="modal-box">
-      <button onclick="closeQRModal()" class="modal-close-btn" aria-label="Close modal">
-        <i data-lucide="x" class="w-4 h-4"></i>
-      </button>
-
-      <span class="text-[10px] uppercase font-bold tracking-widest text-crimson-800 bg-rose-50 px-2.5 py-0.5 rounded-full border border-rose-200">
-        Instant UPI Scan
-      </span>
-      <h3 id="qr-modal-title" class="font-serif font-bold text-xl text-stone-900 mt-1">Scan & Pay ₹1,000</h3>
-      <p class="text-xs text-stone-500">Scan with any UPI app (Google Pay, PhonePe, Paytm, CRED)</p>
-
-      <div class="qr-canvas-wrapper my-2">
-        <div id="qrcode"></div>
-      </div>
-
-      <div class="w-full space-y-2 pt-1">
-        <button onclick="copyToClipboard()" class="btn-subtle w-full py-2 text-xs font-semibold rounded-lg flex items-center justify-center gap-1.5">
-          <i data-lucide="copy" class="w-3.5 h-3.5 text-rose-700"></i>
-          <span>Copy Payment Link</span>
-        </button>
-      </div>
     </div>
   </div>
 
