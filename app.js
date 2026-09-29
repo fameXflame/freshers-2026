@@ -4,7 +4,7 @@
 // ==========================================================================
 
 // ─── Configuration ──────────────────────────────
-const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbz0MbqXVhxSjPhcgThMYhVi0gj9KAyI7SGu5Nw5ytcCpJiv1zJZrpHqjXEUSlar04Cz/exec";
+const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbwILlMX-w15r7plq-tlidZ4p_9qxKfTepHiTtOwn852ymg8ee_6Iaq6w0ztgnEEde98/exec";
 
 // ─── State ──────────────────────────────────────
 let paymentCompleted = false;
