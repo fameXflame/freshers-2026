@@ -36,6 +36,7 @@ function checkUrlPaymentParams() {
 function getFormData() {
   return {
     name: (document.getElementById("student-name")?.value || "").trim(),
+    email: (document.getElementById("student-email")?.value || "").trim(),
     phone: (document.getElementById("student-phone")?.value || "").trim(),
     scholarNumber: (document.getElementById("student-scholar")?.value || "").trim(),
   };
@@ -51,6 +52,11 @@ function validateForm() {
 
   if (!data.name || data.name.length < 2) {
     showFieldError("student-name", "name-error");
+    valid = false;
+  }
+
+  if (!data.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+    showFieldError("student-email", "email-error");
     valid = false;
   }
 
@@ -211,6 +217,7 @@ function handlePaymentSuccess(paymentId) {
 
   logToGoogleSheets({
     name: formData.name || "",
+    email: formData.email || "",
     phone: formData.phone || "",
     scholarNumber: formData.scholarNumber || "",
     paymentId: paymentId,
